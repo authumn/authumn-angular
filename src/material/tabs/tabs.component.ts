@@ -1,11 +1,11 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'authumn-tabs',
+  selector: 'authumn-mat-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss']
 })
-export class TabsComponent {
+export class MaterialTabsComponent {
   navLinks = [
     {
       label: 'Login',

@@ -1,2 +1,2 @@
-export * from './tabs/tabs.component'
-export * from './social/social.component'
+export * from '../../material/tabs/tabs.component'
+export * from '../../material/social/social.component'

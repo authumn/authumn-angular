@@ -1,8 +1,8 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'authumn-social',
+  selector: 'authumn-mat-social',
   templateUrl: './social.component.html',
   styleUrls: ['./social.component.scss']
 })
-export class SocialComponent { }
+export class MaterialSocialComponent { }
