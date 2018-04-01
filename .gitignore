@@ -35,3 +35,4 @@ dist/*
 .playground
 *.txt
 *.log
+*.swp
