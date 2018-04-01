@@ -1,0 +1,27 @@
+@startuml
+autonumber "[<b>[000]"
+actor User
+
+title: User Login
+
+User -> UserLogin: Submit login form
+
+UserLogin -> AuthEffect: UserActions.LOGIN
+
+AuthEffect -> AuthService: login(email, password)
+
+alt Success
+AuthService -> LocalStorage: Store access token
+AuthService -> AuthEffect: AccessToken
+
+AuthEffect -> Router: navigate(returnUrl)
+
+Router -> User: Redirected to returnUrl
+else Failure
+AuthService -> AuthEffect: LoginError
+AuthEffect -> NotificationService
+NotificationService -> User: Show error message
+
+end
+@enduml
+

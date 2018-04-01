@@ -1,0 +1,37 @@
+@startuml
+
+' need to have all of these structures defined
+' must correspond with server ofcourse
+' It's now totally not clear what the formats are
+' less important if you do not use typescript.
+' Where you just work with what you receive.
+' And there are a whole bunch of different stuctures.
+' Besides that I also didn't decide on the error messages yet
+' once decided the same structure can be applied everywhere.
+
+class User {
+  username: string
+  email: string
+}
+
+class UserRegistration {
+  username: string
+  email: string
+  password: string
+}
+
+class UserLogin {
+  username: string
+  email: string
+  password: string
+}
+
+class AuthenticationError {
+  message: string
+}
+
+class RegistrationError {
+  message: string
+}
+
+@enduml
