@@ -8,91 +8,135 @@ To install this library, run:
 $ npm install @authumn/angular --save
 ```
 
-## Usage
+App must setup ngrx module.
 
+## AuthModule
+
+The auth module takes care of the whole login flow without containing any of the user interaction.
+
+![User Login Diagram](diagrams/login.png?raw=true "User Login")
+
+#### Token based authentication
+
+The auth module will send at least `email` and `password` to the authentication server.
+
+This information is send using the Content-type  `application/x-www-form-urlencoded`.
+
+The server is expected to authenticate this request and send back a JSON response containing at least the following data:
+```
+{
+ "access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2NoaXguaW8iLCJzdWIiOiI1YWE1MTU0OWRmNGJlYzAwMGY0YmMxMTgiLCJhdWQiOiJjbGllbnRfaWQiLCJzY29wZXMiOltdLCJlbWFpbCI6InJoYWxmZkB5YWhvby5jb20iLCJleHAiOjE1MjcxNDYxODksImlhdCI6MTUyMTAyNjE4OSwianRpIjoiM2NiMGE2NDgtMjNlYy00NWQ5LTk5ZGMtN2U3NTI3MTVlMzE0In0.pQEsbpAIPX450USc62_NjTaOo1dt3P_csIbFjRHCv4c",
+ "expires_in":3599
+}
+```
+The access token will be used in any further request to any of the endpoints targeted at the `resourceServers`
+defined earlier in the configuration.
+
+The access token will automatically appear in the header like so:
+```
+Authorization: Bearer <access_token>
+```
+
+Any other requests will be left untouched and will not contain this authorization header.
+
+### Setup
+
+The auth module requires ngrx to have been setup.
+You do not have to configure any routes and effects yourself as this is done
+by the auth module.
+
+The auth module will claim the `auth` property within your ngrx store to provide
+the authenticated information. Currently this is just a flag whether you are
+authenticated or not.
+
+Usage:
 ```typescript
-import { BrowserModule } from '@angular/platform-browser'
-import { APP_BOOTSTRAP_LISTENER, ComponentRef, NgModule } from '@angular/core'
-import { StoreModule } from '@ngrx/store'
-import { CommonModule } from '@angular/common'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
-import { RouterModule } from '@angular/router'
-
-import { StoreDevtoolsModule } from '@ngrx/store-devtools'
-import { EffectsModule } from '@ngrx/effects'
-
-import { environment } from '../environments/environment'
-import { routes } from './routes'
-import { StoreRouterConnectingModule } from '@ngrx/router-store'
-import { AppComponent } from './core/containers/app'
-import { AuthModule, UserModule } from '@authumn/angular'
-import { AuthInterceptor } from '@authumn/angular'
+import {
+  AuthModule,
+  AuthService
+} from '@authumn/angular'
 
 @NgModule({
+  ...,
   imports: [
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-
-    RouterModule.forRoot(
-      routes,
-      {
-        useHash: false
-      }
-    ),
-
-    StoreModule.forRoot(
-      ...
-    ),
-
-    StoreRouterConnectingModule.forRoot({
-      stateKey: 'router'
-    }),
-
-    StoreDevtoolsModule.instrument({
-      name: 'Chix DevTools',
-      logOnly: environment.production
-    }),
-
-    EffectsModule.forRoot(
-      []
-    ),
-
+    ...,
+    ...<general ngrx store setup>,
     AuthModule.forRoot({
       api: {
-        loginUrl: 'http://localhost:5001/token/login',
-        registerUrl: 'http://localhost:5000/user/register'
+        loginUrl: 'https://api.chix.io/api/auth/login',
+        registerUrl: 'https://api.chix.io/api/user/register'
       },
       routes: {
         return: ['/'],
         login: ['user', 'login']
       },
       resourceServers: [
-        'http://localhost:5002'
+        'http://api.chix.io'
       ]
-    }),
+    })
+  ]
+})
+export class AppModule { }
+```
 
+
+### AuthGuard
+
+The `AuthGuard` can be used to protect your routes, e.g.:
+```typescript
+import { AuthGuard } from '@authumn/angular'
+
+export const routes: Routes = [
+  {
+    path: '',
+    component: MyComponent,
+    canActivate: [
+      AuthGuard
+    ]
+  }
+]
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)]
+})
+```
+
+Whenever the user tries to access a protected route they will be redirected to the login form.
+The action being dispatched is `AuthAuthenticationRedirectAction`
+
+## UserModule
+
+The user module tries to be be a generic solution to login and registration and 
+contains the user facing part of authumn.
+
+It makes use of json schema to create the forms. These schema's are designed to be
+extendable, which means you can request for additional information during login and registration
+and it will be send along to the server as well.
+
+This information is then validated based on these schemas.
+The fields `username` and `password` are always expected to be present.
+
+Usage of the UserModule is not required to make use of the AuthModule.
+
+## Usage
+
+```angular2html
+import {
+  UserModule
+} from '@authumn/angular
+
+@NgModule({
+  imports: [
     UserModule.forRoot({
-      framework: 'bootstrap-3',
       api: {
-        url: 'http://localhost:5000',
-        registerUrl: 'http://localhost:5000/user/register'
+        url: 'https://user.chix.io',
+        registerUrl: 'https://api.chix.io/api/user/register'
       }
     })
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
+  ]
 })
-export class AppModule {
-}
+export class AppModule { }
+
 ```
 
 ## Development
