@@ -21,7 +21,6 @@ export class ComponentFactoryComponent implements OnInit {
     this.route.data
       .subscribe((data) => {
         const component = this.components[data.template]
-        debugger;
         if (!component) {
           throw Error(`Unknown component ${data.template}`)
         }

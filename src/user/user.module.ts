@@ -46,9 +46,6 @@ export function userTemplateFactory(
     ...extendedComponents
   }
 
-  debugger;
-
-  // could just provide a value I guess.
   return () => {
     const userTemplates = new UserTemplates()
 
