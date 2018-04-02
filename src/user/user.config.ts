@@ -1,5 +1,5 @@
 export class UserConfig {
-  framework: string
+  framework: 'bootstrap-3' | 'material-design'
   components?: any
   api: {
     url: string,

@@ -2,6 +2,22 @@
 # yarn lockfile v1
 
 
+"@angular-devkit/core@^0.4.5":
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-0.4.8.tgz#449718ec31de765f69f9fb7bead3a74f5b54c875"
+  dependencies:
+    ajv "~5.5.1"
+    chokidar "^1.7.0"
+    rxjs "^5.5.8"
+    source-map "^0.5.6"
+
+"@angular-devkit/schematics@^0.4.5":
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-0.4.8.tgz#4fbe8d3e243771a96f20e7a5b2cd5152310f27cd"
+  dependencies:
+    "@ngtools/json-schema" "^1.1.0"
+    rxjs "^5.5.8"
+
 "@angular/animations@^5.2.8":
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.2.8.tgz#31cdb49163881323fa5ded41e89683ec5e9ac8b5"
@@ -41,9 +57,9 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/flex-layout@^5.0.0-beta.13":
-  version "5.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-5.0.0-beta.13.tgz#81ad6ad461003946e7c522920821a56ba7292a85"
+"@angular/flex-layout@^5.0.0-beta.12":
+  version "5.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-5.0.0-beta.14.tgz#300e1cba2ef1a70f43fe7ea68ea78267cb4241e4"
   dependencies:
     tslib "^1.7.1"
 
@@ -54,9 +70,12 @@
     tslib "^1.7.1"
 
 "@angular/material@^5.2.8":
-  version "5.2.4"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.2.4.tgz#9e823798324283d23ea839156fac5bcb73443d55"
+  version "6.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-6.0.0-rc.0.tgz#2089ddeb460a354390fb6b71e03287742be33034"
   dependencies:
+    "@angular-devkit/core" "^0.4.5"
+    "@angular-devkit/schematics" "^0.4.5"
+    "@schematics/angular" "^0.4.5"
     tslib "^1.7.1"
 
 "@angular/platform-browser-dynamic@^5.2.8":
@@ -131,6 +150,16 @@
 "@ngrx/store@^5.2.0":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-5.2.0.tgz#627ed74c9cd95462930485d912a557117b23903e"
+
+"@ngtools/json-schema@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.1.0.tgz#c3a0c544d62392acc2813a42c8a0dc6f58f86922"
+
+"@schematics/angular@^0.4.5":
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.4.8.tgz#b292edbc2f185b2bcae950f9fe09819ab2ef2a7a"
+  dependencies:
+    typescript "~2.6.2"
 
 "@types/jasmine@2.8.6":
   version "2.8.6"
@@ -215,7 +244,7 @@ ajv@^4.9.1:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
-ajv@^5.1.0:
+ajv@^5.1.0, ajv@~5.5.1:
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
   dependencies:
@@ -1120,7 +1149,7 @@ cheerio@^1.0.0-rc.2:
     lodash "^4.15.0"
     parse5 "^3.0.1"
 
-chokidar@1.7.0, chokidar@^1.4.1, chokidar@^1.4.2:
+chokidar@1.7.0, chokidar@^1.4.1, chokidar@^1.4.2, chokidar@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
   dependencies:
@@ -5353,6 +5382,12 @@ rxjs@^5.1.0:
   dependencies:
     symbol-observable "1.0.1"
 
+rxjs@^5.5.8:
+  version "5.5.8"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.8.tgz#b2b0809a57614ad6254c03d7446dea0d83ca3791"
+  dependencies:
+    symbol-observable "1.0.1"
+
 safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
@@ -6274,6 +6309,10 @@ typescript@2.4.2:
 typescript@^2.4.2, typescript@^2.4.x, typescript@~2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.2.tgz#2d615a1ef4aee4f574425cdff7026edf81919836"
+
+typescript@~2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
 
 ua-parser-js@0.7.12:
   version "0.7.12"

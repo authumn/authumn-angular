@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common'
 
 @NgModule({
-  // not how I first intended, but should be ok..
   imports: [
     CommonModule,
     MaterialModule,

@@ -19,6 +19,8 @@ import { ComponentFactoryComponent } from './api/ComponentFactory.component'
 import { MaterialTemplatesModule } from '../material/material.templates.module'
 import { UserComponentsModule } from './user.components.module'
 import { AuthumnViewDirective } from './api/authumn-view.directive'
+import { Bootstrap3LoginComponent, Bootstrap3RegisterComponent } from '../bootstrap-3/index'
+import { Bootstrap3TemplatesModule } from '../bootstrap-3/bootstrap3.templates.module'
 
 const components = [
   AuthumnViewDirective,
@@ -31,14 +33,18 @@ export type TemplateSet = {
 }
 
 const defaultComponents = {
-  material: {
+  'material-design': {
     register: MaterialRegisterComponent,
     login: MaterialLoginComponent
+  },
+  'bootstrap-3': {
+    register: Bootstrap3RegisterComponent,
+    login: Bootstrap3LoginComponent
   }
 }
 
 export function userTemplateFactory(
-  framework = 'material',
+  framework = 'material-design',
   extendedComponents: TemplateSet
 ) {
   const components = {
@@ -61,6 +67,7 @@ export function userTemplateFactory(
     CommonModule,
     BrowserAnimationsModule,
     MaterialTemplatesModule,
+    Bootstrap3TemplatesModule,
     UserComponentsModule,
     UserRoutingModule,
     AuthModule,
@@ -93,7 +100,7 @@ export class UserModule {
         {
           provide: UserTemplates,
           useFactory: userTemplateFactory(
-            'material',
+             config.framework,
             config.components || {}
           )
         }
