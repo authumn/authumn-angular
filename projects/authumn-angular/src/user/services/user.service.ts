@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs/index'
 
-import { User, UserRegister } from '../models/index'
+import { User } from '../models/index'
 import { UserConfig } from '../user.config'
-import { RegistrationPayload, RegistrationSuccessPayload } from '../user.actions'
+import { RegistrationPayload } from '../user.actions'
 
 @Injectable()
 export class UserService {

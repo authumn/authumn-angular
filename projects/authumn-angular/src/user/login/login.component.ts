@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from "@angular/core"
+import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { Store } from '@ngrx/store'
+// import { Store } from '@ngrx/store'
+import { Store } from '@ngxs/store'
 import { UserLoginAction, UserLogoutAction } from '../user.actions'
-import { AuthState } from '../../auth'
+// import { AuthState } from '../../auth'
 
 import { schema } from '../schemas/schema'
 import { login as layout } from '../schemas/layouts/login'
@@ -32,9 +33,12 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private config: UserConfig,
     private router: Router,
+    private store: Store
+    /*
     private store: Store<{
       [key: string]: AuthState
     }>
+    */
   ) { }
 
   ngOnInit () {
@@ -61,7 +65,6 @@ export class LoginComponent implements OnInit {
   onChanges (event) {
     console.log('onChanges', event)
   }
-
 
   isValid (event) {
     console.log('isValid', event)

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core'
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
 import { AuthService } from './auth.service'
-import { AuthAuthenticatedAction, AuthAuthenticationRedirectAction } from './auth.actions'
-import { Store } from '@ngrx/store'
-import { State } from '../lib.state'
-import {AuthConfig} from "./auth.config";
+import { AuthAuthenticationRedirectAction } from './auth.actions'
+// import { Store } from '@ngrx/store'
+import { Store } from '@ngxs/store'
+// import { State } from '../lib.state'
+import { AuthConfig } from './auth.config'
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -12,10 +13,11 @@ export class AuthGuard implements CanActivate {
     private router: Router,
     private authService: AuthService,
     private authConfig: AuthConfig,
-    private store: Store<State>
+    // private store: Store<State>
+    private store: Store
   ) { }
 
-  protectedRoute (url) {
+  protectedRoute (url: string) {
     if (this.authService.isAuthenticated()) {
       // logged in so return true
       return true

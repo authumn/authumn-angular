@@ -1,23 +1,24 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { StoreModule } from '@ngrx/store'
-import { EffectsModule } from '@ngrx/effects'
 
-import { AuthEffects } from './auth.effects'
 import { AuthGuard } from './auth.guard'
-import { reducers } from './auth.reducer'
 import { AuthService } from './auth.service'
 import { AuthConfig } from './auth.config'
 import { AuthProvider } from './provider/auth.provider'
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthInterceptor } from './auth.interceptor'
+import { AuthState } from './auth.ngxs'
 
+import { NgxsModule } from '@ngxs/store'
+
+/**
+ * @dynamic
+ */
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([
-      AuthEffects
+    NgxsModule.forFeature([
+      AuthState
     ])
   ],
   providers: [

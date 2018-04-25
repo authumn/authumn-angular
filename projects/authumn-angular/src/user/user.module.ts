@@ -8,11 +8,9 @@ import { CommonModule } from '@angular/common'
 import { HttpClient } from '@angular/common/http'
 import { UserRoutingModule } from './user-routing.module'
 import { UserService } from './services/user.service'
-import { AuthModule } from '../auth/auth.module'
+// import { AuthModule } from '../auth/auth.module'
 import { UserConfig } from './user.config'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { EffectsModule } from '@ngrx/effects'
-import { UserEffects } from './user.effects'
 import { UserTemplates } from './api/templates'
 import { createUserTemplates } from './api/createUserTemplates'
 import { ComponentFactoryComponent } from './api/ComponentFactory.component'
@@ -20,7 +18,9 @@ import { MaterialTemplatesModule } from '../material/material.templates.module'
 import { UserComponentsModule } from './user.components.module'
 import { AuthumnViewDirective } from './api/authumn-view.directive'
 import { Bootstrap3TemplatesModule } from '../bootstrap-3/bootstrap3.templates.module'
-
+import { NgxsModule } from '@ngxs/store'
+import { UserState } from './user.ngxs'
+debugger
 const components = [
   AuthumnViewDirective,
   ComponentFactoryComponent
@@ -39,11 +39,13 @@ export type TemplateSet = {
     Bootstrap3TemplatesModule,
     UserComponentsModule,
     UserRoutingModule,
-    AuthModule,
-    // StoreModule.forFeature('user', []),
-    EffectsModule.forFeature([
-      UserEffects
+    NgxsModule.forFeature([
+      UserState
     ])
+    // StoreModule.forFeature('user', []),
+    // EffectsModule.forFeature([
+    //   UserEffects
+    // ])
   ],
   declarations: [
     ...components
@@ -58,6 +60,12 @@ export type TemplateSet = {
   ]
 })
 export class UserModule {
+  constructor (@Optional() @SkipSelf() parentModule: UserModule) {
+    if (parentModule) {
+      throw new Error(
+        'UserModule is already loaded. Import it in the AppModule only')
+    }
+  }
   public static forRoot (config: UserConfig): ModuleWithProviders {
     return {
       ngModule: UserModule,
@@ -68,18 +76,13 @@ export class UserModule {
         },
         {
           provide: UserTemplates,
+          // Also Here, this should not be determined dynamically.
           useFactory: createUserTemplates(
              config.framework,
             config.components || {}
           )
         }
       ]
-    }
-  }
-  constructor (@Optional() @SkipSelf() parentModule: AuthModule) {
-    if (parentModule) {
-      throw new Error(
-        'UserModule is already loaded. Import it in the AppModule only')
     }
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { AuthProvider } from './provider/auth.provider'
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs'
 
 @Injectable()
 export class AuthService {

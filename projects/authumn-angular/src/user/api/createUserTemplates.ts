@@ -2,7 +2,7 @@ import { UserTemplates } from './templates'
 import { TemplateSet } from '../user.module'
 import { defaultComponents } from './defaultComponents'
 
-export function createUserTemplates(
+export function createUserTemplates (
   framework = 'material-design',
   extendedComponents: TemplateSet
 ) {

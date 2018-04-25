@@ -11,4 +11,4 @@ export * from './lib/authumn-angular.module';
 export * from './auth/index'
 export * from './user/index'
 // export * from './lib.module'
-export * from './lib.state'
+// export * from './lib.state'

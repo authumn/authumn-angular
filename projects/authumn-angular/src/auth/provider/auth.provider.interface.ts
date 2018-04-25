@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs/index'
 
 export interface AuthProviderInterface {
   login: (username: string, password: string) => Observable<any>

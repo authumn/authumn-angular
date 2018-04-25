@@ -1,7 +1,3 @@
-import { Injectable } from '@angular/core'
-import { Action } from '@ngrx/store'
-
-@Injectable()
 export class AuthActions {
   static AUTHENTICATED = '[Auth] AUTHENTICATED'
   static AUTHENTICATION_REDIRECT = '[Auth] AUTHENTICATION REDIRECT'
@@ -9,7 +5,7 @@ export class AuthActions {
 }
 
 export type RedirectPayload = {
-  returnUrl: string
+  returnUrl: string | string[]
 }
 
 export type ErrorPayload = {
@@ -19,24 +15,24 @@ export type ErrorPayload = {
 /**
  * Action dispatched when authentication fails.
  */
-export class AuthAuthenticationErrorAction implements Action {
-  readonly type = AuthActions.ERROR
+export class AuthAuthenticationErrorAction {
+  static readonly type = AuthActions.ERROR
   constructor (public payload: ErrorPayload) { }
 }
 
 /**
  * Redirect Action dispatched when the user is not authentication.
  */
-export class AuthAuthenticationRedirectAction implements Action {
-  readonly type = AuthActions.AUTHENTICATION_REDIRECT
+export class AuthAuthenticationRedirectAction {
+  static readonly type = AuthActions.AUTHENTICATION_REDIRECT
   constructor (public payload: RedirectPayload) { }
 }
 
 /**
  * Action dispatched after successful authentication.
  */
-export class AuthAuthenticatedAction implements Action {
-  readonly type = AuthActions.AUTHENTICATED
+export class AuthAuthenticatedAction {
+  static readonly type = AuthActions.AUTHENTICATED
   constructor (public payload: boolean) { }
 }
 

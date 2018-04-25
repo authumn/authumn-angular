@@ -1,9 +1,10 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
 import { UserService } from '../services/user.service'
-import { Store } from '@ngrx/store'
+// import { Store } from '@ngrx/store'
+import { Store } from '@ngxs/store'
 import { UserRegisterAction } from '../user.actions'
-import { State } from '../../lib.state'
+// import { State } from '../../lib.state'
 
 import { schema } from '../schemas/schema'
 import { register as layout } from '../schemas/layouts/register'
@@ -27,7 +28,8 @@ export class RegisterComponent {
   constructor (
     private userService: UserService,
     private router: Router,
-    private store: Store<State>
+    // private store: Store<State>
+    private store: Store
   ) { }
 
   register () {
@@ -48,7 +50,6 @@ export class RegisterComponent {
   onChanges (event) {
     console.log('onChanges', event)
   }
-
 
   isValid (event) {
     console.log('isValid', event)

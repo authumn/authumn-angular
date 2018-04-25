@@ -11,13 +11,13 @@ import { AuthumnViewDirective } from './authumn-view.directive'
 })
 export class ComponentFactoryComponent implements OnInit {
   @ViewChild(AuthumnViewDirective) viewHost: AuthumnViewDirective
-  constructor(
+  constructor (
     private route: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver,
     private components: UserTemplates
   ) {
   }
-  ngOnInit() {
+  ngOnInit () {
     this.route.data
       .subscribe((data) => {
         const component = this.components[data.template]
@@ -28,7 +28,7 @@ export class ComponentFactoryComponent implements OnInit {
       })
   }
 
-  loadComponent(component) {
+  loadComponent (component) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component)
     const viewContainerRef = this.viewHost.viewContainerRef
 

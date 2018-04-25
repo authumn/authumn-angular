@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Action } from '@ngrx/store'
+// import { Action } from '@ngrx/store'
 
 @Injectable()
 export class UserActions {
@@ -31,38 +31,36 @@ export class RegistrationError {
   message: string
 }
 
-export class UserRegisterAction implements Action {
-  readonly type = UserActions.REGISTER
+export class UserRegisterAction {
+  static readonly type = UserActions.REGISTER
   constructor (public payload: RegistrationPayload) {}
 }
 
-export class UserRegisterSuccessAction implements Action {
-  readonly type = UserActions.REGISTER_SUCCESS
+export class UserRegisterSuccessAction {
+  static readonly type = UserActions.REGISTER_SUCCESS
   constructor (public payload: RegistrationSuccessPayload) {}
 }
 
-export class UserRegisterFailureAction implements Action {
-  readonly type = UserActions.REGISTER_FAILURE
+export class UserRegisterFailureAction {
+  static readonly type = UserActions.REGISTER_FAILURE
   constructor (public payload: any) {}
 }
 
-export class UserLoginAction implements Action {
-  readonly type = UserActions.LOGIN
+export class UserLoginAction {
+  static readonly type = UserActions.LOGIN
   constructor (public payload: LoginCredentials) {}
 }
 
-export class UserSignUpAction implements Action {
-  readonly type = UserActions.SIGNUP
-  constructor () {}
+export class UserSignUpAction {
+  static readonly type = UserActions.SIGNUP
 }
 
-export class UserSignInAction implements Action {
-  readonly type = UserActions.SIGNIN
-  constructor () {}
+export class UserSignInAction {
+  static readonly type = UserActions.SIGNIN
 }
 
-export class UserLogoutAction implements Action {
-  public type = UserActions.LOGOUT
+export class UserLogoutAction {
+  static readonly type = UserActions.LOGOUT
 }
 
 export type Action =
