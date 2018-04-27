@@ -22,6 +22,8 @@ import { environment } from '../environments/environment'
 // import { reducers } from './app.reducers'
 import { RouterModule } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http'
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin'
 
 const routes = []
 
@@ -41,6 +43,10 @@ const routes = []
     EffectsModule.forRoot([]),
     */
     NgxsModule.forRoot([]),
+    NgxsRouterPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot({
+      disabled: environment.production
+    }),
     AuthModule.forRoot({
       api: {
         loginUrl: 'https://api.chix.io/api/auth/login',
