@@ -34,8 +34,8 @@ export class ComponentFactoryComponent implements OnInit {
 
     viewContainerRef.clear()
 
-    const componentRef = viewContainerRef.createComponent(componentFactory)
-
+    viewContainerRef.createComponent(componentFactory)
+    // const componentRef = viewContainerRef.createComponent(componentFactory)
     // componentRef.instance.data = someData
   }
 }

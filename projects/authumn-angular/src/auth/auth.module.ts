@@ -11,15 +11,15 @@ import { AuthState } from './auth.ngxs'
 
 import { NgxsModule } from '@ngxs/store'
 
+export const routerAuthFeatureModule = NgxsModule.forFeature([AuthState])
+
 /**
  * @dynamic
  */
 @NgModule({
   imports: [
     CommonModule,
-    NgxsModule.forFeature([
-      AuthState
-    ])
+    routerAuthFeatureModule
   ],
   providers: [
     AuthProvider

@@ -1,7 +1,6 @@
 {
   "name": "@authumn/angular",
   "version": "1.0.0",
-  "main": "lib/public_api.ts",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
@@ -11,16 +10,15 @@
     "@angular/forms": "^6.0.0-rc.5",
     "@angular/material": "^6.0.0-rc.12",
     "@angular/router": "^6.0.0-rc.5",
-    "@ngxs/devtools-plugin": "^3.0.0-dev.bb9eb5a",
-    "@ngxs/router-plugin": "^3.0.0-dev.master-0306402",
-    "@ngxs/store": "^3.0.0-dev.master-0306402",
-    "qs": "^6.5.1",
-    "rxjs": "^6.0.0-uncanny-rc.7",
-    "rxjs-compat": "^6.0.0-uncanny-rc.7",
+    "@ngxs/router-plugin": "^3.0.0-rc.2",
+    "@ngxs/store": "^3.0.0-rc.2",
+    "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.0.0",
     "ajv": "^6.4.0",
     "lodash": "4.x",
     "zone.js": "^0.8.26",
-    "angular2-json-schema-form": "rhalff/angular2-json-schema-form#angular-6-dist2"
+    "angular2-json-schema-form": "rhalff/angular2-json-schema-form#angular-6-dist",
+    "qs": "^6.5.1"
   },
   "devDependencies": {
     "@types/qs": "^6.5.1"

@@ -6,9 +6,9 @@ import {
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HttpClient } from '@angular/common/http'
+import { NgxsModule } from '@ngxs/store'
 import { UserRoutingModule } from './user-routing.module'
 import { UserService } from './services/user.service'
-// import { AuthModule } from '../auth/auth.module'
 import { UserConfig } from './user.config'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { UserTemplates } from './api/templates'
@@ -18,9 +18,8 @@ import { MaterialTemplatesModule } from '../material/material.templates.module'
 import { UserComponentsModule } from './user.components.module'
 import { AuthumnViewDirective } from './api/authumn-view.directive'
 import { Bootstrap3TemplatesModule } from '../bootstrap-3/bootstrap3.templates.module'
-import { NgxsModule } from '@ngxs/store'
 import { UserState } from './user.ngxs'
-debugger
+
 const components = [
   AuthumnViewDirective,
   ComponentFactoryComponent
@@ -31,6 +30,10 @@ export type TemplateSet = {
   login: any
 }
 
+export const routerUserFeatureModule = NgxsModule.forFeature([
+  UserState
+])
+
 @NgModule({
   imports: [
     CommonModule,
@@ -39,9 +42,7 @@ export type TemplateSet = {
     Bootstrap3TemplatesModule,
     UserComponentsModule,
     UserRoutingModule,
-    NgxsModule.forFeature([
-      UserState
-    ])
+    routerUserFeatureModule
     // StoreModule.forFeature('user', []),
     // EffectsModule.forFeature([
     //   UserEffects

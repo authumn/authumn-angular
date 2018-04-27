@@ -26,8 +26,6 @@ export class RegisterComponent {
   formOptions = {}
 
   constructor (
-    private userService: UserService,
-    private router: Router,
     // private store: Store<State>
     private store: Store
   ) { }
