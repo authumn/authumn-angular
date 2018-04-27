@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core'
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
 import { AuthService } from './auth.service'
 import { AuthAuthenticationRedirectAction } from './auth.actions'
-// import { Store } from '@ngrx/store'
 import { Store } from '@ngxs/store'
-// import { State } from '../lib.state'
 import { AuthConfig } from './auth.config'
 
 @Injectable()

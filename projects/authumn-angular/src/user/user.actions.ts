@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core'
-// import { Action } from '@ngrx/store'
 
 @Injectable()
 export class UserActions {
@@ -12,7 +11,6 @@ export class UserActions {
   static REGISTER_FAILURE = '[User] REGISTER FAILURE'
 }
 
-// wanted to do this with schema..
 export class LoginCredentials {
   email: string
   password: string

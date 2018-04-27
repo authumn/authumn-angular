@@ -1,10 +1,8 @@
-import { ApplicationRef } from '@angular/core'
 import { Action, Selector, State, StateContext } from '@ngxs/store'
 import {
   AuthAuthenticatedAction,
   AuthAuthenticationRedirectAction,
-  AuthAuthenticationErrorAction,
-  RedirectPayload
+  AuthAuthenticationErrorAction
 } from './auth.actions'
 import { Navigate } from '@ngxs/router-plugin'
 import { AuthConfig } from './auth.config'
@@ -26,8 +24,7 @@ export interface AuthStateModel {
 export class AuthState {
   constructor (
     private authConfig: AuthConfig,
-    private authService: AuthService,
-    private ref: ApplicationRef
+    private authService: AuthService
   ) {}
 
   @Selector()
@@ -50,8 +47,6 @@ export class AuthState {
     })
 
     dispatch(new Navigate(this.authConfig.routes.login))
-
-    // this.ref.tick()
   }
 
   @Action(AuthAuthenticatedAction)
@@ -70,8 +65,6 @@ export class AuthState {
     })
 
     dispatch(new Navigate(url))
-
-    // this.ref.tick()
   }
 
   @Action(UserLoginAction)
