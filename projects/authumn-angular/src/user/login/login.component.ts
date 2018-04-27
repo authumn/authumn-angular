@@ -13,7 +13,6 @@ import { UserConfig } from '../user.config'
  * The login component
  */
 @Component({
-  moduleId: module.id,
   selector: 'authumn-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']

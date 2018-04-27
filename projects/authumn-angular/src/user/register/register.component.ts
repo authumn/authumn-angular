@@ -10,7 +10,6 @@ import { schema } from '../schemas/schema'
 import { register as layout } from '../schemas/layouts/register'
 
 @Component({
-  moduleId: module.id,
   selector: 'authumn-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']

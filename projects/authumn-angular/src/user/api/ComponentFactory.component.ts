@@ -4,7 +4,6 @@ import { UserTemplates } from './templates'
 import { AuthumnViewDirective } from './authumn-view.directive'
 
 @Component({
-  moduleId: module.id,
   template: `
     <ng-template authumnViewHost></ng-template>
   `
