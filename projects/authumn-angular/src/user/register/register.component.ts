@@ -8,6 +8,7 @@ import { UserRegisterAction } from '../user.actions'
 
 import { schema } from '../schemas/schema'
 import { register as layout } from '../schemas/layouts/register'
+import { AuthConfig } from '../../auth/auth.config'
 
 @Component({
   selector: 'authumn-register',
@@ -26,6 +27,7 @@ export class RegisterComponent {
 
   constructor (
     // private store: Store<State>
+    public config: AuthConfig,
     private store: Store
   ) { }
 

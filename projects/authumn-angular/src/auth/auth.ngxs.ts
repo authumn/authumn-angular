@@ -51,7 +51,7 @@ export class AuthState {
 
     dispatch(new Navigate(this.authConfig.routes.login))
 
-    this.ref.tick()
+    // this.ref.tick()
   }
 
   @Action(AuthAuthenticatedAction)
@@ -71,7 +71,7 @@ export class AuthState {
 
     dispatch(new Navigate(url))
 
-    this.ref.tick()
+    // this.ref.tick()
   }
 
   @Action(UserLoginAction)

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core'
 
 import { NgxsModule } from '@ngxs/store'
 
+import 'hammerjs'
+
 /*
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
@@ -12,13 +14,14 @@ import {
   AuthModule,
   AuthService,
   UserModule
-} from '@authumn/angular'
+} from '../../projects/authumn-angular/src/public_api'
 
 import { AppComponent } from './app.component'
 // import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 // import { reducers } from './app.reducers'
 import { RouterModule } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http'
 
 const routes = []
 
@@ -28,6 +31,7 @@ const routes = []
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     /*
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
