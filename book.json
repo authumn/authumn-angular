@@ -1,0 +1,21 @@
+{
+  "gitbook": "3.x.x",
+  "title": "Authumn Angular",
+  "root": "/docs",
+  "plugins": [
+    "highlight",
+    "github",
+    "include-codeblock",
+    "versions",
+    "anchors",
+    "youtube"
+  ],
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/authumn/angular/"
+    },
+    "versions": {
+      "type": "branches"
+    }
+  }
+}
