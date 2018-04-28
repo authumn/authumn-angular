@@ -1,7 +1,7 @@
 # Table of contents
 
 * [@authumn/angular](README.md)
-* [docs](docs/README.md)
+* [Getting Started](docs/README.md)
   * api
     * modules
       * [\_user\_user\_module\_](docs/api/modules/_user_user_module_.md)
