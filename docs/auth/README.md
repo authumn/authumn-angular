@@ -31,9 +31,9 @@ Any other requests will be left untouched and will not contain this authorizatio
 
 ### Setup
 
-The auth module requires ngrx to have been setup. You do not have to configure any routes and effects yourself as this is done by the auth module.
+The auth module requires ngxs to have been setup. You do not have to configure any routes and effects yourself as this is done by the auth module.
 
-The auth module will claim the `auth` property within your ngrx store to provide the authenticated information. Currently this is just a flag whether you are authenticated or not.
+The auth module will claim the `auth` property within your ngxs store to provide the authenticated information. Currently this is just a flag whether you are authenticated or not.
 
 Usage:
 
@@ -47,7 +47,7 @@ import {
   ...,
   imports: [
     ...,
-    ...<general ngrx store setup>,
+    ...<general ngxs store setup>,
     AuthModule.forRoot({
       api: {
         loginUrl: 'https://api.chix.io/api/auth/login',
