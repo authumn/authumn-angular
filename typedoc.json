@@ -3,9 +3,12 @@
   "hideGenerator": true,
   "readme": "none",
   "mode": "modules",
-  "out": "docs/api",
   "theme": "markdown",
+  "exclude": [
+    "**/*.spec.ts"
+  ],
   "excludeExternals": true,
   "excludePrivate": true,
+  "excludeProtected": true,
   "module": "commonjs"
 }

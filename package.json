@@ -10,7 +10,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "docs": "typedoc projects/authumn-angular/src --options typedoc.json"
+    "docs": "npm run docs:auth && npm run docs:user",
+    "docs:auth": "typedoc projects/authumn-angular/src/auth --options typedoc.json --out docs/api/auth",
+    "docs:user": "typedoc projects/authumn-angular/src/user --options typedoc.json --out docs/api/user"
   },
   "dependencies": {
     "@angular/animations": "^6.0.0-rc.5",
