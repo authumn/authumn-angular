@@ -1,16 +1,5 @@
 # @authumn/angular
 
-## Installation
-
-To install this library, run:
-
-```bash
-$ npm install @authumn/angular --save
-```
-
-App must setup ngrx module.
-
-
 
 
 
