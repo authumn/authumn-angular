@@ -43,10 +43,6 @@ export const routerUserFeatureModule = NgxsModule.forFeature([
     UserComponentsModule,
     UserRoutingModule,
     routerUserFeatureModule
-    // StoreModule.forFeature('user', []),
-    // EffectsModule.forFeature([
-    //   UserEffects
-    // ])
   ],
   declarations: [
     ...components

@@ -29,7 +29,7 @@ export const jsonSchemaFormModuleForRoot = JsonSchemaFormModule.forRoot(
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
-    MaterialDesignFrameworkModule
+    MaterialDesignFrameworkModule,
     jsonSchemaFormModuleForRoot
   ],
   declarations: [

@@ -30,8 +30,6 @@ export class UserState {
   @Action(UserLoginAction)
   authenticationRedirect ({ dispatch }: StateContext<UserStateModel>) {
     dispatch(new Navigate(['user', 'login']))
-
-    // this.ref.tick()
   }
 
   @Action(UserRegisterAction)
@@ -62,8 +60,6 @@ export class UserState {
     { dispatch }: StateContext<UserStateModel>
   ) {
     dispatch(new Navigate(['user', 'login']))
-
-    // this.ref.tick()
   }
 
   @Action(UserSignUpAction)
@@ -71,8 +67,6 @@ export class UserState {
     { dispatch }: StateContext<UserStateModel>
   ) {
     dispatch(new Navigate(['user', 'register']))
-
-    // this.ref.tick()
   }
 
   @Action(UserSignInAction)
@@ -80,7 +74,5 @@ export class UserState {
     { dispatch }: StateContext<UserStateModel>
   ) {
     dispatch(new Navigate(['user', 'login']))
-
-    // this.ref.tick()
   }
 }
