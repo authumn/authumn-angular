@@ -1,7 +1,9 @@
 # Table of contents
 
 * [Authumn Angular](README.md)
-* [Getting Started](docs/README.md)
+* [Getting Started](introduction/README.md)
+* [Auth Module](auth/README.md)
+* [User Module](user/README.md)
 * API 
   * Auth 
     * [Actions](api/auth/modules/_auth_actions_.md)
