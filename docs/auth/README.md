@@ -2,7 +2,7 @@
 
 The auth module takes care of the whole login flow without containing any of the user interaction.
 
-![Login Diagram](diagrams/login.png)
+![Login Diagram](../diagrams/login.png)
 
 #### Token based authentication
 
