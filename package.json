@@ -12,10 +12,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "docs": "npm run docs:build",
-    "docs:build": "compodoc -p tsconfig.json -n '@authumn/angular' -d api --hideGenerator",
-    "docs:serve": "npm run docs:build -- -s",
-    "docs:watch": "npm run docs:build -- -s -w"
+    "api": "npm run docs:build",
+    "api:build": "compodoc -p tsconfig.json -n '@authumn/angular' -d api --hideGenerator",
+    "api:serve": "npm run docs:build -- -s",
+    "api:watch": "npm run docs:build -- -s -w",
+    "docs": "typedoc projects/authumn-angular/src --options typedoc.json"
   },
   "dependencies": {
     "@angular/animations": "^6.0.0-rc.5",
@@ -46,14 +47,14 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.5.9",
-    "@angular-devkit/build-ng-packagr": "~0.5.9",
+    "@angular-devkit/build-angular": "~0.5.10",
+    "@angular-devkit/build-ng-packagr": "~0.5.10",
     "@angular/cli": "~6.0.0-rc.5",
     "@angular/compiler-cli": "^6.0.0-rc.1",
     "@angular/language-service": "^6.0.0-rc.1",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~10.0.0",
+    "@types/node": "~9.6.0",
     "codelyzer": "~4.3.0",
     "jasmine-core": "~3.1.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -69,6 +70,8 @@
     "tslib": "^1.9.0",
     "tslint": "~5.9.1",
     "tslint-config-standard": "^7.0.0",
+    "typedoc": "^0.11.1",
+    "typedoc-plugin-markdown": "^1.1.6",
     "typescript": "2.7.2"
   }
 }
