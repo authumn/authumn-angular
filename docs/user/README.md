@@ -1,6 +1,6 @@
 ## UserModule
 
-The user module tries to be be a generic solution to login and registration and contains the user facing part of authumn.
+The user module tries to be a generic solution to login and registration and contains the user facing part of authumn.
 
 It makes use of json schema to create the forms. These schema's are designed to be extendable, which means you can request for additional information during login and registration and it will be send along to the server as well.
 
