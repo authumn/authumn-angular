@@ -16,7 +16,7 @@ While the ways of displaying login and registration fields are versatile, some c
  - registration form `<authumn-registration />`
  - social buttons `<authumn-social />`
  
-In general you will not use this element directly but always
+In general you will not use these components directly, but always
 embed them within a custom form or one of the prefab templates available.
 
 None of the components receive any attributes which is intended.
