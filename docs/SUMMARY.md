@@ -4,6 +4,7 @@
 * [Getting Started](introduction/README.md)
 * [Auth Module](auth/README.md)
 * [User Module](user/README.md)
+  * [Configuraton](user/configuration.md)
   * [Templates](user/templates.md)
   * [Routing](user/routing.md)
 * API 
