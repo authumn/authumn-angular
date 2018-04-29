@@ -3,6 +3,7 @@
 * [Authumn Angular](README.md)
 * [Getting Started](introduction/README.md)
 * [Auth Module](auth/README.md)
+  * [Configuraton](user/configuration.md)
 * [User Module](user/README.md)
   * [Configuraton](user/configuration.md)
   * [Templates](user/templates.md)
