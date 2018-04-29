@@ -12,7 +12,8 @@
     "e2e": "ng e2e",
     "docs": "npm run docs:auth && npm run docs:user",
     "docs:auth": "typedoc projects/authumn-angular/src/auth --options typedoc.json --out docs/api/auth",
-    "docs:user": "typedoc projects/authumn-angular/src/user --options typedoc.json --out docs/api/user"
+    "docs:user": "typedoc projects/authumn-angular/src/user --options typedoc.json --out docs/api/user",
+    "docs:push": "git add docs/ && git commit -m 'update docs' && git push"
   },
   "dependencies": {
     "@angular/animations": "^6.0.0-rc.5",
