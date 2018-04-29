@@ -10,13 +10,11 @@ Authumn Angular supports the following frameworks:
 In order to support a good and decent out-of-the-box experience for Authumn Angular,
 there are standard components available for registration/login etc.
 
-While the ways of displaying login and registration fields are versatile.
+While the ways of displaying login and registration fields are versatile, some common components can be identified:
 
-Some common components can be identified:
-
- - login form
- - registration form
- - social buttons
+ - login form `<authumn-login />`
+ - registration form `<authumn-registration />`
+ - social buttons `<authumn-social />`
  
 In general you will not use this element directly but always
 embed them within a custom form or one of the prefab templates available.
