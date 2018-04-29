@@ -19,6 +19,9 @@ While the ways of displaying login and registration fields are versatile, some c
 In general you will not use this element directly but always
 embed them within a custom form or one of the prefab templates available.
 
+None of the components receive any attributes which is intended.
+Any configuration which can be applied should be done in the forRoot() configuration of the UserModule.
+
 ### Login Form
 
 The bare login form element is defined as:
