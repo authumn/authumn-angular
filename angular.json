@@ -141,6 +141,7 @@
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
+            "tsConfig": "projects/authumn-angular/tsconfig.lib.json",
             "project": "projects/authumn-angular/ng-package.json"
           },
           "configurations": {
@@ -161,8 +162,48 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/authumn-angular/tsconfig.lint.json",
+              "projects/authumn-angular/tsconfig.lib.json",
               "projects/authumn-angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "example": {
+      "root": "projects/example",
+      "sourceRoot": "projects/example/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/example/tsconfig.lib.json",
+            "project": "projects/example/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/example/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/example/src/test.ts",
+            "tsConfig": "projects/example/tsconfig.spec.json",
+            "karmaConfig": "projects/example/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/example/tsconfig.lib.json",
+              "projects/example/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

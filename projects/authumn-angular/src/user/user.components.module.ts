@@ -7,6 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { MaterialModule } from './material/index'
 import {
   JsonSchemaFormModule,
+  MaterialDesignFramework,
   MaterialDesignFrameworkModule
 } from 'angular2-json-schema-form'
 import { CommonModule } from '@angular/common'
@@ -19,10 +20,12 @@ const components = [
   RegisterComponent
 ]
 
+
 export const jsonSchemaFormModuleForRoot = JsonSchemaFormModule.forRoot(
-  MaterialDesignFrameworkModule
+  MaterialDesignFramework
 )
 
+// @dynamic
 @NgModule({
   imports: [
     CommonModule,

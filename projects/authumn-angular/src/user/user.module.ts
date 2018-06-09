@@ -5,7 +5,7 @@ import {
   SkipSelf
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { HttpClient } from '@angular/common/http'
+// import { HttpClientModule } from '@angular/common/http'
 import { NgxsModule } from '@ngxs/store'
 import { UserRoutingModule } from './user-routing.module'
 import { UserService } from './services/user.service'
@@ -37,6 +37,7 @@ export const routerUserFeatureModule = NgxsModule.forFeature([
 @NgModule({
   imports: [
     CommonModule,
+    // HttpClientModule,
     BrowserAnimationsModule,
     MaterialTemplatesModule,
     Bootstrap3TemplatesModule,
@@ -51,7 +52,6 @@ export const routerUserFeatureModule = NgxsModule.forFeature([
     ...components
   ],
   providers: [
-    HttpClient,
     UserService,
     UserTemplates
   ]

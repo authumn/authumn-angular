@@ -5,7 +5,7 @@ import { AuthGuard } from './auth.guard'
 import { AuthService } from './auth.service'
 import { AuthConfig } from './auth.config'
 import { AuthProvider } from './provider/auth.provider'
-import { HTTP_INTERCEPTORS } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http'
 import { AuthInterceptor } from './auth.interceptor'
 import { AuthState } from './auth.ngxs'
 
@@ -19,9 +19,11 @@ export const routerAuthFeatureModule = NgxsModule.forFeature([AuthState])
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     routerAuthFeatureModule
   ],
   providers: [
+    HttpClient,
     AuthProvider
   ]
 })

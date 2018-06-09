@@ -3,6 +3,7 @@
   "version": "1.3.0",
   "peerDependencies": {
     "@angular/core": "^6.0.3",
+    "@angular/common": "^6.0.3",
     "@angular/animations": "^6.0.3",
     "@angular/flex-layout": "^6.0.0-beta.15",
     "@angular/cdk": "^6.1.0",
@@ -21,8 +22,5 @@
   },
   "devDependencies": {
     "@types/qs": "^6.5.1"
-  },
-  "dependencies": {
-    "@angular/common": "^6.0.3"
   }
 }

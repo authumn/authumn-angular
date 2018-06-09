@@ -11,11 +11,33 @@ import {
 import { AppComponent } from './app.component'
 import { environment } from '../environments/environment'
 import { RouterModule } from '@angular/router'
-import { HttpClientModule } from '@angular/common/http'
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin'
+import { HttpClientModule } from '@angular/common/http'
 
 const routes = []
+
+const authModule = AuthModule.forRoot({
+  api: {
+    loginUrl: 'https://api.chix.io/v1/auth/login',
+    registerUrl: 'https://api.chix.io/v1/user/register'
+  },
+  routes: {
+    return: ['/'],
+    login: ['user', 'login']
+  },
+  resourceServers: [
+    'https://api.chix.io/v1'
+  ]
+})
+
+const userModule = UserModule.forRoot({
+  framework: 'bootstrap-3',
+  api: {
+    url: 'https://api.chix.io/v1/user',
+    registerUrl: 'https://api.chix.io/v1/user/register'
+  }
+})
 
 @NgModule({
   declarations: [
@@ -29,26 +51,8 @@ const routes = []
     NgxsReduxDevtoolsPluginModule.forRoot({
       disabled: environment.production
     }),
-    AuthModule.forRoot({
-      api: {
-        loginUrl: 'https://api.chix.io/api/auth/login',
-        registerUrl: 'https://api.chix.io/api/user/register'
-      },
-      routes: {
-        return: ['/'],
-        login: ['user', 'login']
-      },
-      resourceServers: [
-        'http://api.chix.io'
-      ]
-    }),
-    UserModule.forRoot({
-      framework: 'bootstrap-3',
-      api: {
-        url: 'https://user.chix.io',
-        registerUrl: 'https://api.chix.io/api/user/register'
-      }
-    }),
+    userModule,
+    authModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

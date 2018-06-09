@@ -18,6 +18,8 @@ export class AuthConfig {
    * Url of the authentication server.
    */
   api: Api
+
+  loadExternalAssets?: boolean
   /**
    * List of servers to which the authentication header is to be send.
    */
