@@ -32,7 +32,8 @@ const authModule = AuthModule.forRoot({
 })
 
 const userModule = UserModule.forRoot({
-  framework: 'bootstrap-3',
+  // framework: 'bootstrap-3',
+  framework: 'material-design',
   api: {
     url: 'https://api.chix.io/v1/user',
     registerUrl: 'https://api.chix.io/v1/user/register'
