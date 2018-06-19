@@ -18,7 +18,7 @@ import { MaterialTemplatesModule } from '../material/material.templates.module'
 import { UserComponentsModule } from './user.components.module'
 import { AuthumnViewDirective } from './api/authumn-view.directive'
 import { Bootstrap3TemplatesModule } from '../bootstrap-3/bootstrap3.templates.module'
-import { UserState } from './user.ngxs'
+import { UserState } from './user.state'
 
 const components = [
   AuthumnViewDirective,

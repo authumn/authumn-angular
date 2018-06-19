@@ -7,7 +7,7 @@ import { AuthConfig } from './auth.config'
 import { AuthProvider } from './provider/auth.provider'
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http'
 import { AuthInterceptor } from './auth.interceptor'
-import { AuthState } from './auth.ngxs'
+import { AuthState } from './auth.state'
 
 import { NgxsModule } from '@ngxs/store'
 

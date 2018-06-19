@@ -11,7 +11,6 @@ export class AuthGuard implements CanActivate {
     private router: Router,
     private authService: AuthService,
     private authConfig: AuthConfig,
-    // private store: Store<State>
     private store: Store
   ) { }
 

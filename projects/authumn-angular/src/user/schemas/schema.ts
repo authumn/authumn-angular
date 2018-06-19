@@ -1,6 +1,10 @@
 export const schema = {
   'type': 'object',
   'properties': {
+    'username': {
+      'type': 'string',
+      'title': 'Username'
+    },
     'email': {
       'type': 'string',
       'title': 'Email',

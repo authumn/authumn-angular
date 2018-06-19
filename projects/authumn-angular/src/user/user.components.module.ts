@@ -20,7 +20,6 @@ const components = [
   RegisterComponent
 ]
 
-
 export const jsonSchemaFormModuleForRoot = JsonSchemaFormModule.forRoot(
   MaterialDesignFramework
 )

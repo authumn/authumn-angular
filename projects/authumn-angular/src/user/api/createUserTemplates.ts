@@ -6,7 +6,7 @@ export function createUserTemplates (
   framework = 'material-design',
   extendedComponents: TemplateSet
 ) {
-  const components = {
+  const components: TemplateSet = {
     ...defaultComponents[framework],
     ...extendedComponents
   }

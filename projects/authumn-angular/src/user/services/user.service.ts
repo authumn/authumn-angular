@@ -14,22 +14,22 @@ export class UserService {
   ) { }
 
   getAll (): Observable<User[]> {
-    return this.http.get<User[]>(this.userConfig.api.url + '/user')
+    return this.http.get<User[]>(`${this.userConfig.api.url}/user`)
   }
 
   getById (id): Observable<User> {
-    return this.http.get<User>(this.userConfig.api.url + '/user/' + id)
+    return this.http.get<User>(`${this.userConfig.api.url}/user/${id}`)
   }
 
   create (user: RegistrationPayload) {
-    return this.http.post(this.userConfig.api.registerUrl, user)
+    return this.http.post<User>(this.userConfig.api.registerUrl, user)
   }
 
   update (user: User) {
-    return this.http.put(this.userConfig.api.url + '/user/' + user._id, user)
+    return this.http.put<User>(`${this.userConfig.api.url}/user/${user._id}`, user)
   }
 
   delete (_id: string) {
-    return this.http.delete(this.userConfig.api.url + '/user/' + _id)
+    return this.http.delete(`${this.userConfig.api.url}/user/${_id}`)
   }
 }

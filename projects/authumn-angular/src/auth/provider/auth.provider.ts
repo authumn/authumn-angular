@@ -19,7 +19,7 @@ export class AuthProvider implements AuthProviderInterface {
     password: string
   ) {
     return this.http.post<any>(
-      this.authConfig.api.loginUrl, //+ '/auth/login',
+      this.authConfig.api.loginUrl, // + '/auth/login',
       qs.stringify({ username, password }),
       {
         headers: {

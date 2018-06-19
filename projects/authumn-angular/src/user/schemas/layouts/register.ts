@@ -1,5 +1,9 @@
 export const register = [
   {
+    key: 'username',
+    placeholder: 'Enter username'
+  },
+  {
     key: 'email',
     placeholder: 'Enter email'
   },
