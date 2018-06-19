@@ -6,8 +6,8 @@
       "@ngxs/*": [
         "projects/*"
       ],
-      "@authumn/*": [
-        "projects/*"
+      "@authumn/angular": [
+        "dist/authumn-angular"
       ],
       "example": [
         "dist/example"
