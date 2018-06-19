@@ -6,7 +6,8 @@ import {
   AuthModule,
   AuthService,
   UserModule
-} from '../../projects/authumn-angular/src/public_api'
+// } from '../../projects/authumn-angular/src/public_api'
+} from '@authumn/angular'
 
 import { AppComponent } from './app.component'
 import { environment } from '../environments/environment'

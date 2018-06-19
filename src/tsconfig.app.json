@@ -5,7 +5,7 @@
     "module": "es2015",
     "types": [],
     "paths": {
-      "@authumn/*": ["../dist/*"]
+      "@authumn/angular": ["./dist/authumn-angular"]
     }
   },
   "exclude": [
