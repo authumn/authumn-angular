@@ -4,14 +4,12 @@ import {
   Optional,
   SkipSelf
 } from '@angular/core'
-
+import { CommonModule } from '@angular/common'
 import {
   HTTP_INTERCEPTORS,
   HttpClient,
   HttpClientModule
 } from '@angular/common/http'
-
-import { CommonModule } from '@angular/common'
 
 import { NgxsModule } from '@ngxs/store'
 

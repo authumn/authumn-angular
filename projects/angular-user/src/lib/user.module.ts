@@ -5,19 +5,24 @@ import {
   SkipSelf
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { HttpClientModule } from '@angular/common/http'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { NgxsModule } from '@ngxs/store'
+
+import {
+  AuthModule,
+  AuthService,
+  AuthProvider
+} from '@authumn/angular-auth'
 
 import { UserRoutingModule } from './user-routing.module'
 import { UserService } from './services/user.service'
 import { UserConfig } from './user.config'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ComponentFactoryComponent } from './api/ComponentFactory.component'
 import { UserComponentsModule } from './user.components.module'
 import { AuthumnViewDirective } from './api/authumn-view.directive'
 import { UserState } from './user.state'
-import { HttpClientModule } from '@angular/common/http'
-import { AuthModule, AuthService, AuthProvider } from '@authumn/angular-auth'
 
 const components = [
   AuthumnViewDirective,

@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
+import { RouterModule } from '@angular/router'
 
 import {
   UserComponentsModule,
@@ -10,8 +12,6 @@ import { MaterialRegisterComponent } from './register/register.component'
 import { MaterialTabsComponent } from './tabs/tabs.component'
 import { MaterialSocialComponent } from './social/social.component'
 import { MaterialModule } from './material.module'
-import { RouterModule } from '@angular/router'
-import { CommonModule } from '@angular/common'
 
 @NgModule({
   imports: [

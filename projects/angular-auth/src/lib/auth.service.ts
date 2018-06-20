@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core'
-import { AuthProvider } from './provider/auth.provider'
-import { Observable } from 'rxjs'
+
 import { Store } from '@ngxs/store'
+
+import { Observable } from 'rxjs'
+
+import { AuthProvider } from './provider/auth.provider'
 import {
   AuthAuthenticatedAction,
   AuthAuthenticationErrorAction,

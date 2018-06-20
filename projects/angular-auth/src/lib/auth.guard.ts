@@ -5,9 +5,11 @@ import {
   Router,
   RouterStateSnapshot
 } from '@angular/router'
+
+import { Store } from '@ngxs/store'
+
 import { AuthService } from './auth.service'
 import { AuthAuthenticationRedirectAction } from './auth.actions'
-import { Store } from '@ngxs/store'
 import { AuthConfig } from './auth.config'
 
 @Injectable()

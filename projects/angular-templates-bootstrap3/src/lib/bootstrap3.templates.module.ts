@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core'
+import { RouterModule } from '@angular/router'
+import { CommonModule } from '@angular/common'
+
 import {
   UserComponentsModule,
   UserTemplates
 } from '@authumn/angular-user'
-import { RouterModule } from '@angular/router'
-import { CommonModule } from '@angular/common'
+
 import { Bootstrap3LoginComponent } from './login/login.component'
 import { Bootstrap3RegisterComponent } from './register/register.component'
 

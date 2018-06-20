@@ -8,7 +8,9 @@ import {
   HttpHandler,
   HttpRequest
 } from '@angular/common/http'
+
 import { Observable } from 'rxjs/index'
+
 import { AuthService } from './auth.service'
 import { AuthConfig } from './auth.config'
 

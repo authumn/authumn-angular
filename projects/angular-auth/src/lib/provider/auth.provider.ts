@@ -1,10 +1,12 @@
-import { AuthProviderInterface } from './auth.provider.interface'
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs'
-import 'rxjs/add/operator/map'
+
 import * as qs from 'qs'
 
+import { Observable } from 'rxjs'
+import 'rxjs/add/operator/map'
+
+import { AuthProviderInterface } from './auth.provider.interface'
 import { AuthConfig } from '../auth.config'
 
 @Injectable()

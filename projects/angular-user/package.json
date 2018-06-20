@@ -3,6 +3,15 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/router": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/animations": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/platform-browser": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/flex-layout": "^6.0.0-beta.15",
+    "@authumn/angular-auth": "^1.0.0",
+    "@ngxs/store": "^3.0.1",
+    "@ngxs/router-plugin": "^3.0.1",
+    "angular2-json-schema-form": "rhalff/angular2-json-schema-form#angular-6-dist",
+    "rxjs": "^6.0.0"
   }
 }
