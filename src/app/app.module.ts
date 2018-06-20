@@ -1,13 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
-import { NgModule } from '@angular/core'
+import { ModuleWithProviders, NgModule } from '@angular/core'
 import { NgxsModule } from '@ngxs/store'
 import 'hammerjs'
-import {
-  AuthModule,
-  AuthService,
-  UserModule
-// } from '../../projects/authumn-angular/src/public_api'
-} from '@authumn/angular'
 
 import { AppComponent } from './app.component'
 import { environment } from '../environments/environment'
@@ -15,12 +9,20 @@ import { RouterModule } from '@angular/router'
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin'
 import { HttpClientModule } from '@angular/common/http'
+import { JsonSchemaFormModule, MaterialDesignFramework, MaterialDesignFrameworkModule } from 'angular2-json-schema-form'
+import { MaterialTemplatesModule } from '@authumn/angular-templates-material'
+import { AuthumnAngularModule } from '@authumn/angular'
+
+export const jsonSchemaFormModuleForRoot: ModuleWithProviders = JsonSchemaFormModule.forRoot(
+  MaterialDesignFramework
+)
 
 const routes = []
 
-const authModule = AuthModule.forRoot({
+const authumnModule = AuthumnAngularModule.forRoot({
   api: {
     loginUrl: 'https://api.chix.io/v1/auth/login',
+    profileUrl: 'https://api.chix.io/v1/user',
     registerUrl: 'https://api.chix.io/v1/user/register'
   },
   routes: {
@@ -30,15 +32,6 @@ const authModule = AuthModule.forRoot({
   resourceServers: [
     'https://api.chix.io/v1'
   ]
-})
-
-const userModule = UserModule.forRoot({
-  // framework: 'bootstrap-3',
-  framework: 'material-design',
-  api: {
-    url: 'https://api.chix.io/v1/user',
-    registerUrl: 'https://api.chix.io/v1/user/register'
-  }
 })
 
 @NgModule({
@@ -53,12 +46,11 @@ const userModule = UserModule.forRoot({
     NgxsReduxDevtoolsPluginModule.forRoot({
       disabled: environment.production
     }),
-    userModule,
-    authModule,
+    MaterialTemplatesModule,
+    MaterialDesignFrameworkModule,
+    jsonSchemaFormModuleForRoot,
+    authumnModule,
     RouterModule.forRoot(routes)
-  ],
-  providers: [
-    AuthService
   ],
   bootstrap: [AppComponent]
 })

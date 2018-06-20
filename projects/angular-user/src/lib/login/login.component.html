@@ -1,0 +1,12 @@
+<json-schema-form
+  *ngIf="formActive"
+  [loadExternalAssets]="config.loadExternalAssets || false"
+  [(ngModel)]="model"
+  [form]="formObject"
+  [options]="formOptions"
+  [framework]="userTemplates.formFramework"
+  (onChanges)="onChanges($event)"
+  (onSubmit)="onSubmit($event)"
+  (isValid)="isValid($event)"
+  (validationErrors)="validationErrors($event)">
+</json-schema-form>

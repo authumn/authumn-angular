@@ -3,14 +3,20 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@ngxs/*": [
-        "projects/*"
-      ],
       "@authumn/angular": [
-        "dist/authumn-angular"
+        "dist/@authumn/angular"
       ],
-      "example": [
-        "dist/example"
+      "@authumn/angular-templates-bootstrap3": [
+        "dist/@authumn/angular-templates-bootstrap3"
+      ],
+      "@authumn/angular-templates-material": [
+        "dist/@authumn/angular-templates-material"
+      ],
+      "@authumn/angular-user": [
+        "dist/@authumn/angular-user"
+      ],
+      "@authumn/angular-auth": [
+        "dist/@authumn/angular-auth"
       ]
     },
     "noUnusedLocals": false,

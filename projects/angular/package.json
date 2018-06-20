@@ -1,0 +1,28 @@
+{
+  "name": "@authumn/angular",
+  "version": "1.3.0",
+  "peerDependencies": {
+    "@angular/core": "^6.0.3",
+    "@angular/common": "^6.0.3",
+    "@angular/animations": "^6.0.3",
+    "@angular/flex-layout": "^6.0.0-beta.15",
+    "@angular/cdk": "^6.1.0",
+    "@angular/forms": "^6.0.3",
+    "@angular/material": "^6.1.0",
+    "@angular/router": "^6.0.3",
+    "@ngxs/router-plugin": "^3.0.1",
+    "@ngxs/store": "^3.0.1",
+    "@authumn/angular-templates-bootstrap3": "^0.0.0",
+    "@authumn/angular-templates-material": "^0.0.0",
+    "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.0.0",
+    "ajv": "^6.4.0",
+    "lodash": "4.x",
+    "zone.js": "^0.8.26",
+    "angular2-json-schema-form": "rhalff/angular2-json-schema-form#angular-6-dist",
+    "qs": "^6.5.1"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.5.1"
+  }
+}

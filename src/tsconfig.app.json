@@ -3,10 +3,24 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "module": "es2015",
-    "types": [],
     "paths": {
-      "@authumn/angular": ["./dist/authumn-angular"]
-    }
+      "@authumn/angular": [
+        "projects/angular/src/public_api.ts"
+      ],
+      "@authumn/angular-templates-bootstrap3": [
+        "projects/angular-templates-bootstrap3/src/public_api.ts"
+      ],
+      "@authumn/angular-templates-material": [
+        "projects/angular-templates-material/src/public_api.ts"
+      ],
+      "@authumn/angular-user": [
+        "projects/angular-user/src/public_api.ts"
+      ],
+      "@authumn/angular-auth": [
+        "projects/angular-auth/src/public_api.ts"
+      ]
+    },
+    "types": []
   },
   "exclude": [
     "src/test.ts",
