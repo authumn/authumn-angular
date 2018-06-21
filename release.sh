@@ -1,22 +1,24 @@
 #!/usr/bin/env bash
 
+PUBLISH="npm publish --access=public"
+
 cd ./dist/@authumn
+$PUBLISH
 
 cd angular-auth
-npm publish
 
 cd ../angular-auth
-npm publish
+$PUBLISH
 
 cd ../angular-user
-npm publish
+$PUBLISH
 
 cd ../angular-templates-bootstrap3
-npm publish
+$PUBLISH
 
 cd ../angular-templates-material
-npm publish
+$PUBLISH
 
 cd ../angular
-npm publish
+$PUBLISH
 
