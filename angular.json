@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "authumn-angular-demo": {
+    "authumn-angular-bootstrap3": {
       "root": "",
       "projectType": "application",
       "prefix": "app",
@@ -11,25 +11,25 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/authumn-angular-demo",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "outputPath": "dist/authumn-angular-bootstrap3",
+            "index": "src/bootstrap3/index.html",
+            "main": "src/bootstrap3/main.ts",
+            "polyfills": "src/bootstrap3/polyfills.ts",
+            "tsConfig": "src/bootstrap3/tsconfig.app.json",
             "assets": [
               {
                 "glob": "favicon.ico",
-                "input": "src",
+                "input": "src/bootstrap3",
                 "output": "/"
               },
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "src/bootstrap3/assets",
                 "output": "/assets"
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/bootstrap3/styles.scss"
             ],
             "scripts": []
           },
@@ -37,8 +37,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "src/bootstrap3/environments/environment.ts",
+                  "with": "src/bootstrap3/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -56,42 +56,42 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "authumn-angular-demo:build"
+            "browserTarget": "authumn-angular-bootstrap3:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "authumn-angular-demo:build:production"
+              "browserTarget": "authumn-angular-bootstrap3:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "authumn-angular-demo:build"
+            "browserTarget": "authumn-angular-bootstrap3:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "src/bootstrap3/test.ts",
+            "polyfills": "src/bootstrap3/polyfills.ts",
+            "tsConfig": "src/bootstrap3/tsconfig.spec.json",
+            "karmaConfig": "src/bootstrap3/karma.conf.js",
             "styles": [
               {
-                "input": "styles.css"
+                "input": "styles.scss"
               }
             ],
             "scripts": [],
             "assets": [
               {
                 "glob": "favicon.ico",
-                "input": "src/",
+                "input": "src/bootstrap3/",
                 "output": "/"
               },
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "src/bootstrap3/assets",
                 "output": "/assets"
               }
             ]
@@ -101,8 +101,116 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "src/bootstrap3/tsconfig.app.json",
+              "src/bootstrap3/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "authumn-angular-material": {
+      "root": "",
+      "projectType": "application",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/authumn-angular-material",
+            "index": "src/material/index.html",
+            "main": "src/material/main.ts",
+            "polyfills": "src/material/polyfills.ts",
+            "tsConfig": "src/material/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "favicon.ico",
+                "input": "src/material",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/material/assets",
+                "output": "/assets"
+              }
+            ],
+            "styles": [
+              "src/material/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/material/environments/environment.ts",
+                  "with": "src/material/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "authumn-angular-material:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "authumn-angular-material:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "authumn-angular-material:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/material/test.ts",
+            "polyfills": "src/material/polyfills.ts",
+            "tsConfig": "src/material/tsconfig.spec.json",
+            "karmaConfig": "src/material/karma.conf.js",
+            "styles": [
+              {
+                "input": "styles.css"
+              }
+            ],
+            "scripts": [],
+            "assets": [
+              {
+                "glob": "favicon.ico",
+                "input": "src/material/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/material/assets",
+                "output": "/assets"
+              }
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/material/tsconfig.app.json",
+              "src/material/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
