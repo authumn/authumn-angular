@@ -3,7 +3,6 @@
 PUBLISH="npm publish --access=public"
 
 cd ./dist/@authumn
-$PUBLISH
 
 cd angular-auth
 
