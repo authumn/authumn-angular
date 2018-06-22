@@ -5,7 +5,6 @@ import {
 import { Routes, RouterModule } from '@angular/router'
 
 import { UserComponent } from './user.component'
-import { LostPasswordComponent } from './lost-password/lost-password.component'
 import { ComponentFactoryComponent } from './api/ComponentFactory.component'
 
 export const routes: Routes = [
@@ -22,7 +21,7 @@ export const routes: Routes = [
       },
       {
         path: 'lost_password',
-        component: LostPasswordComponent
+        component: ComponentFactoryComponent
       },
       {
         path: 'register',

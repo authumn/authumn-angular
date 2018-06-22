@@ -6,4 +6,5 @@ import { Component } from '@angular/core'
   styleUrls: ['./login.component.scss']
 })
 export class Bootstrap3LoginComponent {
+  profileImage = '//ssl.gstatic.com/accounts/ui/avatar_2x.png'
 }

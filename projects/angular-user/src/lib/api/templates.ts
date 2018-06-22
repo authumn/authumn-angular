@@ -4,4 +4,5 @@ export class UserTemplates {
   formFramework: string
   register: Type<any>
   login: Type<any>
+  lostPassword: Type<any>
 }

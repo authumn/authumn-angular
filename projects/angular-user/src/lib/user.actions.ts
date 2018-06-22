@@ -9,6 +9,11 @@ export class UserActions {
   static REGISTER = '[User] REGISTER'
   static REGISTER_SUCCESS = '[User] REGISTER SUCCESS'
   static REGISTER_FAILURE = '[User] REGISTER FAILURE'
+  static LOST_PASSWORD = '[User] LOST PASSWORD'
+}
+
+export class LostPasswordPayload {
+  email: string
 }
 
 export class LoginCredentials {
@@ -61,6 +66,12 @@ export class UserLogoutAction {
   static readonly type = UserActions.LOGOUT
 }
 
+export class LostPasswordAction {
+  static readonly type = UserActions.LOST_PASSWORD
+
+  constructor (public payload: LostPasswordPayload) {}
+}
+
 export type Action =
   | UserLoginAction
   | UserLogoutAction
@@ -69,3 +80,4 @@ export type Action =
   | UserRegisterAction
   | UserRegisterSuccessAction
   | UserRegisterFailureAction
+  | LostPasswordAction

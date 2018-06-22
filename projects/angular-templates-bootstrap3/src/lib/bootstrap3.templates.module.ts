@@ -40,3 +40,4 @@ import { Bootstrap3RegisterComponent } from './register/register.component'
   ]
 })
 export class Bootstrap3TemplatesModule {}
+// provide configuration with yet another forRoot() method?

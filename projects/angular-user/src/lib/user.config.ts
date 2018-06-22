@@ -8,6 +8,7 @@ export class UserConfig {
   layout?: {
     register?: any,
     login?: any
+    lostPassword?: any
   }
 
   api: {

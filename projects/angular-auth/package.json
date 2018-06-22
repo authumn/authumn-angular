@@ -10,7 +10,8 @@
     "@ngxs/store": "^3.0.1",
     "@ngxs/router-plugin": "^3.0.1",
     "rxjs": "^6.0.0",
-    "qs": "^6.5.1"
+    "qs": "^6.5.1",
+    "jwt-decode": "^2.2.0"
   },
   "devDependencies": {
     "@types/qs": "^6.5.1"
