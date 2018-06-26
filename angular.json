@@ -60,7 +60,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "authumn-angular-bootstrap3:build:production"
+              "browserTarget": "authumn-angular-bootstrap3:build:production",
             }
           }
         },

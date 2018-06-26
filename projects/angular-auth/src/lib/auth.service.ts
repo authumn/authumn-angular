@@ -89,9 +89,9 @@ export class AuthService {
           return of(this.store.dispatch(new AuthAuthenticatedAction(user)))
         }),
         catchError((error) => {
-          return of(new AuthAuthenticationErrorAction({
+          return of(this.store.dispatch(new AuthAuthenticationErrorAction({
             message: error.message
-          }))
+          })))
         })
       )
   }

@@ -6,9 +6,9 @@ import {
   StateContext
 } from '@ngxs/store'
 
-import { AuthService } from '@authumn/angular-auth'
-
 import { Navigate } from '@ngxs/router-plugin'
+
+import { AuthService } from '@authumn/angular-auth'
 
 import {
   RegistrationSuccessPayload,
@@ -21,10 +21,9 @@ import {
   UserLogoutAction
 } from './user.actions'
 import { catchError, map } from 'rxjs/operators'
-import { of } from 'rxjs'
+import { of, Observable } from 'rxjs'
 
 import { UserService } from './services/user.service'
-import { Observable } from 'rxjs'
 
 export interface UserStateModel {}
 
