@@ -44,14 +44,14 @@ export class UserState {
     { dispatch }: StateContext<UserStateModel>,
     { payload: { email, password } }: UserLoginAction
   ) {
-    this.authService.login(email, password)
+    return this.authService.login(email, password)
   }
 
   @Action(UserLogoutAction)
   logout (
     { dispatch, patchState }: StateContext<UserStateModel>
   ) {
-    this.authService.logout()
+    return this.authService.logout()
   }
 
   /* Not sure, was this correct?

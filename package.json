@@ -10,6 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "serve:bootstrap3": "ng serve authumn-angular-bootstrap3",
+    "serve:material": "ng serve authumn-angular-material",
     "docs": "npm run docs:auth && npm run docs:user",
     "docs:auth": "typedoc projects/authumn-angular/src/auth --options typedoc.json --out docs/api/auth",
     "docs:user": "typedoc projects/authumn-angular/src/user --options typedoc.json --out docs/api/user",

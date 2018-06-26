@@ -11,7 +11,7 @@ import {
   AuthAuthenticationErrorAction,
   AuthLogoutAction
 } from './auth.actions'
-import { catchError, tap } from 'rxjs/operators'
+import { catchError, map, tap } from 'rxjs/operators'
 
 import { AuthModel } from './models/auth.model'
 import { TokenModel } from './models/token.model'
@@ -77,7 +77,7 @@ export class AuthService {
   public login (username: string, password: string) {
     return this.authProvider.login(username, password)
       .pipe(
-        tap(({ access_token, expires_in }: TokenModel) => {
+        map(({ access_token, expires_in }: TokenModel) => {
           const { sub: id, email, username } = jwtDecode(access_token)
 
           const user: AuthModel = { id, email, username }
@@ -86,7 +86,7 @@ export class AuthService {
           this.setItem('currentUser', JSON.stringify(user))
           this.setItem('tokenExpire', String(Date.now() + (expires_in * 1000)))
 
-          this.store.dispatch(new AuthAuthenticatedAction(user))
+          return of(this.store.dispatch(new AuthAuthenticatedAction(user)))
         }),
         catchError((error) => {
           return of(new AuthAuthenticationErrorAction({

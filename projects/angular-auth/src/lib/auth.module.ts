@@ -20,16 +20,14 @@ import { AuthProvider } from './provider/auth.provider'
 import { AuthInterceptor } from './auth.interceptor'
 import { AuthState } from './auth.state'
 
-export const routerAuthFeatureModule = NgxsModule.forFeature([AuthState])
+export const authFeatureModule = NgxsModule.forFeature([AuthState])
 
-/**
- * @dynamic
- */
+// @dynamic
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    routerAuthFeatureModule
+    authFeatureModule
   ],
   providers: [
     HttpClient,
@@ -43,9 +41,6 @@ export const routerAuthFeatureModule = NgxsModule.forFeature([AuthState])
     }
   ]
 })
-export class AuthRootModule {}
-
-@NgModule({})
 export class AuthModule {
   constructor (@Optional() @SkipSelf() parentModule: AuthModule) {
     if (parentModule) {
@@ -55,7 +50,7 @@ export class AuthModule {
   }
   public static forRoot (config: AuthConfig): ModuleWithProviders {
     return {
-      ngModule: AuthRootModule,
+      ngModule: AuthModule,
       providers: [
         {
           provide: AuthConfig,

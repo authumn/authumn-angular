@@ -16,12 +16,16 @@ import {
 } from 'angular2-json-schema-form'
 import { AuthumnAngularModule } from '@authumn/angular'
 import { Bootstrap3TemplatesModule } from '@authumn/angular-templates-bootstrap3'
+import { AuthenticatedComponent } from './authenticated.component'
 
 export const jsonSchemaFormModuleForRoot: ModuleWithProviders = JsonSchemaFormModule.forRoot(
   Bootstrap3Framework
 )
 
-const routes = []
+const routes = [{
+  path: 'authenticated',
+  component: AuthenticatedComponent
+}]
 
 const authumnModule = AuthumnAngularModule.forRoot({
   api: {
@@ -30,7 +34,7 @@ const authumnModule = AuthumnAngularModule.forRoot({
     registerUrl: 'https://api.chix.io/v1/user/register'
   },
   routes: {
-    return: ['/'],
+    return: ['/authenticated'],
     login: ['user', 'login']
   },
   resourceServers: [
@@ -40,7 +44,8 @@ const authumnModule = AuthumnAngularModule.forRoot({
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthenticatedComponent
   ],
   imports: [
     BrowserModule,
