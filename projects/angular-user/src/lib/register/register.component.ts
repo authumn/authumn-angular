@@ -2,10 +2,10 @@ import { Component } from '@angular/core'
 import { Store } from '@ngxs/store'
 import { UserRegisterAction } from '../user.actions'
 
-import { schema } from '../schemas/schema'
 import { register as layout } from '../schemas/layouts/register'
 import { UserTemplates } from '../api/templates'
 import { UserConfig } from '../user.config'
+import { registerSchema } from '../schemas/register.schema'
 
 @Component({
   selector: 'authumn-register',
@@ -18,7 +18,7 @@ export class RegisterComponent {
   formActive = true
   formObject = {
     layout,
-    schema
+    schema: registerSchema
   }
   formOptions = {}
 
@@ -27,8 +27,8 @@ export class RegisterComponent {
     public userTemplates: UserTemplates,
     private store: Store
   ) {
-    if (config.schemas && config.schemas.user) {
-      this.formObject.schema = config.schemas.user
+    if (config.schemas && config.schemas.register) {
+      this.formObject.schema = config.schemas.register
     }
 
     if (config.layout && config.layout.register) {

@@ -12,10 +12,10 @@ import {
   UserLogoutAction
 } from '../user.actions'
 
-import { schema } from '../schemas/schema'
 import { login as layout } from '../schemas/layouts/login'
 import { UserConfig } from '../user.config'
 import { UserTemplates } from '../api/templates'
+import { loginSchema } from '../schemas/login.schema'
 
 /**
  * The login component
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   formActive = true
   formObject = {
     layout,
-    schema
+    schema: loginSchema
   }
   formOptions = {}
 
@@ -43,8 +43,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private store: Store
   ) {
-    if (config.schemas && config.schemas.user) {
-      this.formObject.schema = config.schemas.user
+    if (config.schemas && config.schemas.login) {
+      this.formObject.schema = config.schemas.login
     }
 
     if (config.layout && config.layout.login) {

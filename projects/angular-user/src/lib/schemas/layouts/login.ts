@@ -1,7 +1,7 @@
 export const login = [
   {
-    key: 'email',
-    placeholder: 'Enter email address'
+    key: 'login',
+    placeholder: 'Enter username or email address'
   },
   {
     key: 'password',

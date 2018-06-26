@@ -6,6 +6,39 @@
   background: rgba(52,58,64,0.7);
 }
 
+.card {
+  min-width: 350px;
+}
+
+/deep/ .schema-form-submit {
+  color: white;
+  p {
+    font-size: small;
+  }
+}
+
+/deep/ .form-control {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    border-width: 2px;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+  }
+}
+
+/deep/ label.control-label {
+  color: white;
+}
+
+/deep/ input.btn {
+  float: right
+}
+
 a, a:hover{
   color: #fff;
   text-decoration: underline;

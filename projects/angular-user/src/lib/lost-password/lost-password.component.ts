@@ -7,8 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { UserTemplates } from '../api/templates'
 import { Store } from '@ngxs/store'
 import { UserConfig } from '../user.config'
-import { schema } from '../schemas/schema'
+import { registerSchema } from '../schemas/register.schema'
 import { LostPasswordAction } from '../user.actions'
+import { lostPassword } from '../schemas/layouts/lostPassword'
 
 @Component({
   selector: 'authumn-lost-password',
@@ -21,8 +22,8 @@ export class LostPasswordComponent implements OnInit {
 
   formActive = true
   formObject = {
-    layout,
-    schema
+    layout: lostPassword,
+    schema: registerSchema
   }
   formOptions = {}
 
@@ -33,8 +34,8 @@ export class LostPasswordComponent implements OnInit {
     private router: Router,
     private store: Store
   ) {
-    if (config.schemas && config.schemas.user) {
-      this.formObject.schema = config.schemas.user
+    if (config.schemas && config.schemas.register) {
+      this.formObject.schema = config.schemas.register
     }
 
     if (config.layout && config.layout.login) {
