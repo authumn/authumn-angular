@@ -1,0 +1,15 @@
+@import '../shared/shared.scss';
+
+.card {
+  min-width: 350px;
+}
+
+/deep/ .form-control {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+}
+
+/deep/ input.btn {
+  float: right
+}

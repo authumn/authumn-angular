@@ -1,0 +1,26 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-dark border-bottom box-shadow">
+  <h5 class="my-0 mr-md-auto font-weight-normal text-light">Authumn Angular Bootstrap 4</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a
+      class="p-2 text-light"
+      href="#"
+      [routerLink]="['user/login']"
+    >Login</a>
+    <em class="text-muted">or</em>
+    <a
+      class="p-2 text-light"
+      href="#"
+      [routerLink]="['user/register']"
+    >Sign up</a>
+    <a
+      class="p-2 text-light"
+      [routerLink]="['user/lost_password']"
+    >
+      Lost Password?
+    </a>
+  </nav>
+</div>
+<div class="hero">
+  <router-outlet></router-outlet>
+</div>
+

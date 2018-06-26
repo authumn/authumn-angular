@@ -9,6 +9,9 @@
       "@authumn/angular-templates-bootstrap3": [
         "dist/@authumn/angular-templates-bootstrap3"
       ],
+      "@authumn/angular-templates-bootstrap4": [
+        "dist/@authumn/angular-templates-bootstrap4"
+      ],
       "@authumn/angular-templates-material": [
         "dist/@authumn/angular-templates-material"
       ],

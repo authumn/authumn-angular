@@ -5,7 +5,7 @@ export const register = [
   },
   {
     key: 'email',
-    placeholder: 'Enter email'
+    placeholder: 'Enter email address'
   },
   {
     key: 'password',
@@ -15,7 +15,7 @@ export const register = [
   {
     key: 'password_repeat',
     type: 'password',
-    placeholder: 'Repeat password'
+    placeholder: 'Confirm password'
   },
   {
     type: 'submit',

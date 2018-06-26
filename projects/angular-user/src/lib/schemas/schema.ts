@@ -16,7 +16,7 @@ export const schema = {
     },
     'password_repeat': {
       'type': 'string',
-      'title': 'Repeat Password'
+      'title': 'Confirm password'
     }
   }
 }

@@ -1,0 +1,37 @@
+<section class="hero mt-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-8 mx-auto">
+
+        <div class="card border-none">
+          <div class="card-body">
+            <div class="mt-2">
+              <img
+                *ngIf="profileImage"
+                [src]="profileImage"
+                alt="Profile Image"
+                class="brand-logo mx-auto d-block img-fluid rounded-circle"
+              />
+            </div>
+            <p
+              *ngIf="introText"
+              class="mt-4 text-white lead text-center"
+            >
+              {{introText}}
+            </p>
+            <div class="mt-2">
+              <authumn-login></authumn-login>
+              <div class="clearfix"></div>
+            </div>
+            <authumn-bs4-social
+              *ngIf="socialButtons"
+            ></authumn-bs4-social>
+            <div class="text-center text-light mt-3">
+              Don't have an account yet? <a [routerLink]="['/user/register']">Sign Up Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
