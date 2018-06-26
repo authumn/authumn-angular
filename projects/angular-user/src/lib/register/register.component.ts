@@ -21,6 +21,7 @@ export class RegisterComponent {
     schema: registerSchema
   }
   formOptions = {}
+  valid: boolean = false
 
   constructor (
     public config: UserConfig,
@@ -44,7 +45,9 @@ export class RegisterComponent {
 
   onSubmit (event) {
     console.log('onSubmit', event, this.model)
-    this.register()
+    if (this.valid) {
+      this.register()
+    }
   }
 
   validationErrors (event) {
@@ -56,8 +59,6 @@ export class RegisterComponent {
   }
 
   isValid (event) {
-    console.log('isValid', event)
-
-    return true
+    this.valid = event
   }
 }

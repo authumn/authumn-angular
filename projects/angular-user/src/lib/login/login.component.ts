@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
   }
   formOptions = {}
 
+  valid: boolean = false
+
   constructor (
     private route: ActivatedRoute,
     public userTemplates: UserTemplates,
@@ -65,8 +67,10 @@ export class LoginComponent implements OnInit {
     }))
   }
 
-  onSubmit (event) {
-    this.login()
+  onSubmit () {
+    if (this.valid) {
+      this.login()
+    }
   }
 
   validationErrors (event) {
@@ -77,9 +81,7 @@ export class LoginComponent implements OnInit {
     console.log('onChanges', event)
   }
 
-  isValid (event) {
-    console.log('isValid', event)
-
-    return true
+  isValid (event: boolean) {
+    this.valid = event
   }
 }
