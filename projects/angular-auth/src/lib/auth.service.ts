@@ -15,6 +15,7 @@ import { catchError, map, tap } from 'rxjs/operators'
 
 import { AuthModel } from './models/auth.model'
 import { TokenModel } from './models/token.model'
+import { DecodedModel } from './models/decoded.model'
 
 @Injectable()
 export class AuthService {
@@ -78,7 +79,7 @@ export class AuthService {
     return this.authProvider.login(username, password)
       .pipe(
         map(({ access_token, expires_in }: TokenModel) => {
-          const { sub: id, email, username } = jwtDecode(access_token)
+          const { sub: id, email, username } = this.decode(access_token)
 
           const user: AuthModel = { id, email, username }
 
@@ -94,6 +95,14 @@ export class AuthService {
           })))
         })
       )
+  }
+
+  public decode (token: string): DecodedModel {
+    return jwtDecode(token)
+  }
+
+  public getDecodedToken (): DecodedModel {
+    return this.decode(this.getToken())
   }
 
   public clear () {

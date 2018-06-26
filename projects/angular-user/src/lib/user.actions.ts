@@ -17,7 +17,7 @@ export class LostPasswordPayload {
 }
 
 export class LoginCredentials {
-  email: string
+  username: string
   password: string
 }
 

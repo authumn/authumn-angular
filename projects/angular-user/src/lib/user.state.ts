@@ -41,9 +41,9 @@ export class UserState {
   @Action(UserLoginAction)
   login (
     { dispatch }: StateContext<UserStateModel>,
-    { payload: { email, password } }: UserLoginAction
+    { payload: { username, password } }: UserLoginAction
   ) {
-    return this.authService.login(email, password)
+    return this.authService.login(username, password)
   }
 
   @Action(UserLogoutAction)

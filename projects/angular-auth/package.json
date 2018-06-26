@@ -2,7 +2,7 @@
   "name": "@authumn/angular-auth",
   "license": "MIT",
   "author": "Rob Halff <rob.halff@gmail.com>",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",

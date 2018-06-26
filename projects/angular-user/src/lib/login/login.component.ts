@@ -62,12 +62,12 @@ export class LoginComponent implements OnInit {
     this.loading = true
 
     this.store.dispatch(new UserLoginAction({
-      email: this.model.email,
+      username: this.model.username,
       password: this.model.password
     }))
   }
 
-  onSubmit () {
+  onSubmit (_event) {
     if (this.valid) {
       this.login()
     }

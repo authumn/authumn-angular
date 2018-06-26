@@ -1,7 +1,7 @@
 export const loginSchema = {
   type: 'object',
   properties: {
-    login: {
+    username: {
       type: 'string',
       title: 'Username or email address',
       required: true
