@@ -6,7 +6,6 @@ cd ./dist/@authumn
 
 cd angular-auth
 
-cd ../angular-auth
 $PUBLISH
 
 cd ../angular-user

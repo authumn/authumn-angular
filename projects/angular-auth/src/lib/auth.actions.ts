@@ -1,3 +1,5 @@
+import { AuthModel } from './models/auth.model'
+
 export class AuthActions {
   static AUTHENTICATED = '[Auth] AUTHENTICATED'
   static AUTHENTICATION_REDIRECT = '[Auth] AUTHENTICATION REDIRECT'
@@ -34,7 +36,7 @@ export class AuthAuthenticationRedirectAction {
  */
 export class AuthAuthenticatedAction {
   static readonly type = AuthActions.AUTHENTICATED
-  constructor (public payload: boolean) { }
+  constructor (public payload: AuthModel) { }
 }
 
 export class AuthLogoutAction {

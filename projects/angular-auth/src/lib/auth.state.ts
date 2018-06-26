@@ -14,10 +14,13 @@ import {
 } from './auth.actions'
 import { AuthConfig } from './auth.config'
 import { AuthService } from './auth.service'
+import { AuthModel } from './models/auth.model'
 
 export interface AuthStateModel {
+  id?: string
   isAuthenticated: boolean
   returnUrl: null | string
+  username?: string
 }
 
 @State<AuthStateModel>({
@@ -71,7 +74,7 @@ export class AuthState {
   @Action(AuthAuthenticatedAction)
   authenticated (
     { dispatch, getState, patchState }: StateContext<AuthStateModel>,
-    { payload: isAuthenticated }
+    { payload: { username, id } }: AuthAuthenticatedAction
   ) {
     const state = getState()
 
@@ -80,7 +83,9 @@ export class AuthState {
     const url = returnUrl ? [returnUrl] : this.authConfig.routes.return
 
     patchState({
-      isAuthenticated
+      id,
+      isAuthenticated: true,
+      username
     })
 
     dispatch(new Navigate(url))

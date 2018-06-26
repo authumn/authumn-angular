@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode'
 
 import { Store } from '@ngxs/store'
 
-import { Observable } from 'rxjs'
+import { Observable, of } from 'rxjs'
 
 import { AuthProvider } from './provider/auth.provider'
 import {
@@ -11,6 +11,10 @@ import {
   AuthAuthenticationErrorAction,
   AuthLogoutAction
 } from './auth.actions'
+import { catchError, tap } from 'rxjs/operators'
+
+import { AuthModel } from './models/auth.model'
+import { TokenModel } from './models/token.model'
 
 @Injectable()
 export class AuthService {
@@ -18,90 +22,109 @@ export class AuthService {
     private authProvider: AuthProvider,
     private store: Store
   ) {}
-  getToken () {
-    return JSON.parse(localStorage.getItem('currentUser'))
+  public getToken (): string | null {
+    return this.getItem('access_token')
   }
 
-  getUserId (): string | null {
-    const { access_token } = this.getToken()
+  public getUserId (): string | null {
+    const user = this.getItem('currentUser')
 
-    if (access_token) {
-      const { sub } = jwtDecode(access_token)
-
-      return sub
+    if (user) {
+      return JSON.parse(user).id
     }
 
     return null
   }
 
-  getUsername (): string | null {
-    const { access_token } = this.getToken()
+  public getUsername (): string | null {
+    const user = this.getItem('currentUser')
 
-    if (access_token) {
-      const { username } = jwtDecode(access_token)
-
-      return username
+    if (user) {
+      return JSON.parse(user).username
     }
 
     return null
   }
 
-  isAuthenticated (): boolean {
+  public isAuthenticated (): boolean {
     const token = this.getToken()
 
-    return token && !this.isExpired()
+    if (!token || this.isExpired()) {
+      this.clear()
+
+      return false
+    }
+
+    return true
   }
 
-  isExpired (): boolean {
-    const tokenExpire = Number(localStorage.getItem('tokenExpire'))
+  public isExpired (): boolean {
+    const tokenExpire = Number(this.getItem('tokenExpire'))
 
     return (tokenExpire - Date.now()) <= 0
   }
 
-  getAuthorizationHeader (): string | null {
-    const token = this.getToken()
+  public getAuthorizationHeader (): string | null {
+    const accessToken = this.getToken()
 
-    if (
-      token &&
-      token.access_token &&
-      token.refresh_token
-    ) {
-      return `Bearer ${token.access_token}`
+    if (accessToken) {
+      return `Bearer ${accessToken}`
     }
 
     return null
   }
 
-  login (username: string, password: string) {
-    this.authProvider.login(username, password)
-      .map(user => {
-        if (
-          user &&
-          user.access_token &&
-          user.expires_in
-        ) {
-          localStorage.setItem('currentUser', JSON.stringify(user))
-          localStorage.setItem('tokenExpire', String(Date.now() + (user.expires_in * 1000)))
-        }
+  public login (username: string, password: string) {
+    return this.authProvider.login(username, password)
+      .pipe(
+        tap(({ access_token, expires_in }: TokenModel) => {
+          const { sub: id, email, username } = jwtDecode(access_token)
 
-        return user
-      })
-      .subscribe(
-        data => {
-          this.store.dispatch(new AuthAuthenticatedAction(true))
-        },
-        error => {
-          this.store.dispatch(new AuthAuthenticationErrorAction({
+          const user: AuthModel = { id, email, username }
+
+          this.setItem('access_token', access_token)
+          this.setItem('currentUser', JSON.stringify(user))
+          this.setItem('tokenExpire', String(Date.now() + (expires_in * 1000)))
+
+          this.store.dispatch(new AuthAuthenticatedAction(user))
+        }),
+        catchError((error) => {
+          return of(new AuthAuthenticationErrorAction({
             message: error.message
           }))
-        }
+        })
       )
   }
 
-  logout () {
-    localStorage.removeItem('currentUser')
-    localStorage.removeItem('tokenExpire')
+  public clear () {
+    this.removeItem('accessToken')
+    this.removeItem('currentUser')
+    this.removeItem('tokenExpire')
+  }
+
+  public logout () {
+    this.clear()
 
     this.store.dispatch(new AuthLogoutAction())
+  }
+
+  private getItem (key: string) {
+    if (localStorage) {
+      return localStorage.getItem(key)
+    }
+
+    return null
+  }
+
+  private setItem (key: string, value: any): void {
+    if (localStorage) {
+      localStorage.setItem(key, value)
+    }
+  }
+
+  private removeItem (key): void {
+    if (localStorage) {
+      localStorage.removeItem(key)
+    }
   }
 }
