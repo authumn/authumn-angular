@@ -15,12 +15,16 @@ import {
 import { AuthConfig } from './auth.config'
 import { AuthService } from './auth.service'
 import { AuthModel } from './models/auth.model'
+import { AuthUser } from './models/auth-user.model'
+import { Observable } from 'rxjs/Rx'
 
 export interface AuthStateModel {
-  id?: string
   isAuthenticated: boolean
   returnUrl: null | string
-  username?: string
+  user?: {
+    id: string
+    login: string
+  }
 }
 
 @State<AuthStateModel>({
@@ -36,12 +40,17 @@ export class AuthState {
   ) {}
 
   @Selector()
-  static selectorIsAuthenticated (state: AuthStateModel) {
+  static selectorIsAuthenticated (state: AuthStateModel): boolean {
     return state.isAuthenticated
   }
 
   @Selector()
-  static selectorAuthReturnUrl (state: AuthStateModel) {
+  static getUser (state: AuthStateModel): AuthUser | null {
+    return state.user || null
+  }
+
+  @Selector()
+  static selectorAuthReturnUrl (state: AuthStateModel): string {
     return state.returnUrl
   }
 
@@ -74,7 +83,7 @@ export class AuthState {
   @Action(AuthAuthenticatedAction)
   authenticated (
     { dispatch, getState, patchState }: StateContext<AuthStateModel>,
-    { payload: { username, id } }: AuthAuthenticatedAction
+    { payload: { username: login, id } }: AuthAuthenticatedAction
   ) {
     const state = getState()
 
@@ -83,9 +92,11 @@ export class AuthState {
     const url = returnUrl ? [returnUrl] : this.authConfig.routes.return
 
     patchState({
-      id,
       isAuthenticated: true,
-      username
+      user: {
+        id,
+        login
+      }
     })
 
     dispatch(new Navigate(url))

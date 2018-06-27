@@ -3,6 +3,7 @@
  */
 
 export * from './lib/provider/auth.provider'
+export * from './lib/models'
 export * from './lib/auth.actions'
 export * from './lib/auth.config'
 export * from './lib/auth.guard'

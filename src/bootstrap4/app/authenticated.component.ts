@@ -1,18 +1,30 @@
-import { Component } from '@angular/core'
-import { AuthConfig, AuthService } from '@authumn/angular-auth'
+import { Component, OnInit } from '@angular/core'
+import {
+  AuthConfig,
+  AuthService,
+  AuthState,
+  AuthUser
+} from '@authumn/angular-auth'
+import { Observable } from 'rxjs/Rx'
+import { Select } from '@ngxs/store'
 
 @Component({
   selector: 'app-authenticated',
   template: `
     <div
-      *ngIf="authService.isAuthenticated()"
+      *ngIf="(user$ | async) as user"
       class="jumbotron text-light bg-dark">
-      <h2>Hello {{authService.getUsername()}},</h2>
+      <h2>Hello {{user.login}},</h2>
       <p>
         You are now logged in!
       </p>
       <p>
-        Your userId is: <code>{{authService.getUserId()}}</code>
+        authService.getUsername(): <code>{{authService.getUsername()}}</code>
+        user$.login: <code>{{user.login}}</code>
+      </p>
+      <p>
+        authService.getUserId(): <code>{{authService.getUserId()}}</code>
+        user$.id: <code>{{user.id}}</code>
       </p>
 
       <p>
@@ -38,11 +50,18 @@ import { AuthConfig, AuthService } from '@authumn/angular-auth'
   styles: [`
   `]
 })
-export class AuthenticatedComponent {
+export class AuthenticatedComponent implements OnInit {
   constructor (
     public authService: AuthService,
     public authConfig: AuthConfig
   ) {}
+
+  @Select(AuthState.getUser) user$: Observable<AuthUser>
+
+  ngOnInit () {
+    // Re-authenticate using the token
+    this.authService.refresh()
+  }
 
   getDecodedToken () {
     return JSON.stringify(this.authService.getDecodedToken(),null, 2)

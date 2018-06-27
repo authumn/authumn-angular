@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, OnInit } from '@angular/core'
 import jwtDecode from 'jwt-decode'
 
 import { Store } from '@ngxs/store'
@@ -23,28 +23,47 @@ export class AuthService {
     private authProvider: AuthProvider,
     private store: Store
   ) {}
+
   public getToken (): string | null {
     return this.getItem('access_token')
   }
 
   public getUserId (): string | null {
-    const user = this.getItem('currentUser')
+    const user = this.getUser()
 
     if (user) {
-      return JSON.parse(user).id
+      return user.id
     }
 
     return null
   }
 
   public getUsername (): string | null {
-    const user = this.getItem('currentUser')
+    const user = this.getUser()
 
     if (user) {
-      return JSON.parse(user).username
+      return user.username
     }
 
     return null
+  }
+
+  public getUser (): AuthModel | null {
+    const user = this.getItem('currentUser')
+
+    if (user) {
+      return JSON.parse(user)
+    }
+
+    return null
+  }
+
+  public refresh () {
+    const user = this.getUser()
+
+    if (user) {
+      this.store.dispatch(new AuthAuthenticatedAction(user))
+    }
   }
 
   public isAuthenticated (): boolean {
