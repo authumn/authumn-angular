@@ -3,6 +3,8 @@
  */
 
 export * from './lib/api/templates'
+export * from './lib/login/login.component'
+export * from './lib/register/register.component'
 export * from './lib/user.actions'
 export * from './lib/user.component'
 export * from './lib/user.components.module'
