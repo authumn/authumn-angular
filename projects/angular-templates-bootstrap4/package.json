@@ -2,7 +2,7 @@
   "name": "@authumn/angular-templates-bootstrap4",
   "license": "MIT",
   "author": "Rob Halff <rob.halff@gmail.com>",
-  "version": "1.7.1",
+  "version": "1.7.6",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",

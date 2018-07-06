@@ -121,7 +121,13 @@ export class AuthService {
   }
 
   public getDecodedToken (): DecodedModel {
-    return this.decode(this.getToken())
+    const accessToken = this.getToken()
+
+    if (accessToken)  {
+      return this.decode(accessToken)
+    }
+
+    throw Error('Could not decode token.')
   }
 
   public clear () {
@@ -150,7 +156,7 @@ export class AuthService {
     }
   }
 
-  private removeItem (key): void {
+  private removeItem (key: string): void {
     if (localStorage) {
       localStorage.removeItem(key)
     }

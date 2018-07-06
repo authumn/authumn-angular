@@ -9,18 +9,14 @@ import { Navigate } from '@ngxs/router-plugin'
 import {
   AuthAuthenticatedAction,
   AuthAuthenticationRedirectAction,
-  AuthLogoutAction,
-  AuthAuthenticationErrorAction
+  AuthLogoutAction
 } from './auth.actions'
 import { AuthConfig } from './auth.config'
-import { AuthService } from './auth.service'
-import { AuthModel } from './models/auth.model'
 import { AuthUser } from './models/auth-user.model'
-import { Observable } from 'rxjs/Rx'
 
 export interface AuthStateModel {
   isAuthenticated: boolean
-  returnUrl: null | string
+  returnUrl: string | string[]
   user?: {
     id: string
     login: string
@@ -31,7 +27,7 @@ export interface AuthStateModel {
   name: 'auth',
   defaults: {
     isAuthenticated: false,
-    returnUrl: null
+    returnUrl: ['/']
   }
 })
 export class AuthState {
@@ -50,7 +46,7 @@ export class AuthState {
   }
 
   @Selector()
-  static selectorAuthReturnUrl (state: AuthStateModel): string {
+  static selectorAuthReturnUrl (state: AuthStateModel): string | string[] {
     return state.returnUrl
   }
 
@@ -71,7 +67,7 @@ export class AuthState {
   @Action(AuthAuthenticationRedirectAction)
   authenticationRedirect (
     { dispatch, patchState }: StateContext<AuthStateModel>,
-    { payload }
+    { payload }: AuthAuthenticationRedirectAction
   ) {
     patchState({
       returnUrl: payload.returnUrl

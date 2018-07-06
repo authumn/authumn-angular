@@ -22,7 +22,9 @@
         "dist/@authumn/angular-auth"
       ]
     },
-    "noUnusedLocals": false,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",

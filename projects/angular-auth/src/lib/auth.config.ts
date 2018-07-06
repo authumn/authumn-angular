@@ -17,15 +17,20 @@ export class AuthConfig {
   /**
    * Url of the authentication server.
    */
-  api: Api
+  api: Api = {
+    loginUrl: '',
+    registerUrl: ''
+  }
 
-  loadExternalAssets?: boolean
   /**
    * List of servers to which the authentication header is to be send.
    */
-  resourceServers: ResourceServers
+  resourceServers: ResourceServers = []
   /**
    * Routes
    */
-  routes: Routes
+  routes: Routes = {
+    login: ['/user', 'login'],
+    return: ['/']
+  }
 }

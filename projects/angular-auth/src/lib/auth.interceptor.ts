@@ -19,7 +19,7 @@ export interface AnyData {}
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  authService: AuthService
+  authService!: AuthService
   constructor (
     private injector: Injector,
     private authConfig: AuthConfig

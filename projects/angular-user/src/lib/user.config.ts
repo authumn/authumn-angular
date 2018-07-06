@@ -1,6 +1,4 @@
 export class UserConfig {
-  loadExternalAssets?: boolean
-
   schemas?: {
     login: any
     register: any
