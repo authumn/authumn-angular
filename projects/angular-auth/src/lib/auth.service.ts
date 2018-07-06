@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core'
+import { Injectable } from '@angular/core'
 import jwtDecode from 'jwt-decode'
 
 import { Store } from '@ngxs/store'
@@ -11,7 +11,7 @@ import {
   AuthAuthenticationErrorAction,
   AuthLogoutAction
 } from './auth.actions'
-import { catchError, map, tap } from 'rxjs/operators'
+import { catchError, map } from 'rxjs/operators'
 
 import { AuthModel } from './models/auth.model'
 import { TokenModel } from './models/token.model'

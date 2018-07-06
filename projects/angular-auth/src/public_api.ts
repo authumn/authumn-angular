@@ -1,7 +1,3 @@
-/*
- * Public API Surface of angular-auth
- */
-
 export * from './lib/provider/auth.provider'
 export * from './lib/models'
 export * from './lib/auth.actions'

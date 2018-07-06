@@ -14,7 +14,6 @@ import { Observable } from 'rxjs/index'
 import { AuthService } from './auth.service'
 import { AuthConfig } from './auth.config'
 
-/* `any` doesn't work  */
 export interface AnyData {}
 
 @Injectable()

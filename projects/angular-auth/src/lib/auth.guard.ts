@@ -23,7 +23,6 @@ export class AuthGuard implements CanActivate {
 
   protectedRoute (url: string) {
     if (this.authService.isAuthenticated()) {
-      // logged in so return true
       return true
     }
 
