@@ -2,7 +2,7 @@
   "name": "@authumn/angular",
   "license": "MIT",
   "author": "Rob Halff <rob.halff@gmail.com>",
-  "version": "1.6.1",
+  "version": "1.7.1",
   "peerDependencies": {
     "@angular/core": "^6.0.3",
     "@angular/common": "^6.0.3",

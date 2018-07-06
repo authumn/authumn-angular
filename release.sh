@@ -14,6 +14,9 @@ $PUBLISH
 cd ../angular-templates-bootstrap3
 $PUBLISH
 
+cd ../angular-templates-bootstrap4
+$PUBLISH
+
 cd ../angular-templates-material
 $PUBLISH
 
