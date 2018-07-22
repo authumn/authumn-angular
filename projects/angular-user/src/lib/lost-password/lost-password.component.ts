@@ -53,17 +53,13 @@ export class LostPasswordComponent implements OnInit {
     }))
   }
 
-  validationErrors (event) {
-    console.log('validationErrors', event)
+  validationErrors (_event) {
   }
 
-  onChanges (event) {
-    console.log('onChanges', event)
+  onChanges (_event) {
   }
 
-  isValid (event) {
-    console.log('isValid', event)
-
+  isValid (_event) {
     return true
   }
 

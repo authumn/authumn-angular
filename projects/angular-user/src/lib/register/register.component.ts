@@ -44,18 +44,15 @@ export class RegisterComponent {
   }
 
   onSubmit (event) {
-    console.log('onSubmit', event, this.model)
     if (this.valid) {
       this.register()
     }
   }
 
-  validationErrors (event) {
-    console.log('validationErrors', event)
+  validationErrors (_event) {
   }
 
-  onChanges (event) {
-    console.log('onChanges', event)
+  onChanges (_event) {
   }
 
   isValid (event) {

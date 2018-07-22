@@ -73,12 +73,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  validationErrors (event) {
-    console.log('validationErrors', event)
+  validationErrors (_event) {
   }
 
-  onChanges (event) {
-    console.log('onChanges', event)
+  onChanges (_event) {
   }
 
   isValid (event: boolean) {
