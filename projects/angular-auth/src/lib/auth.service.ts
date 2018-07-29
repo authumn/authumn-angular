@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode'
 
 import { Store } from '@ngxs/store'
 
-import { Observable, of } from 'rxjs'
+import { of, Observable } from 'rxjs'
 
 import { AuthProvider } from './provider/auth.provider'
 import {
@@ -94,7 +94,7 @@ export class AuthService {
     return null
   }
 
-  public login (username: string, password: string) {
+  public login (username: string, password: string): Observable<any> {
     return this.authProvider.login(username, password)
       .pipe(
         map(({ access_token, expires_in }: TokenModel) => {
@@ -123,7 +123,7 @@ export class AuthService {
   public getDecodedToken (): DecodedModel {
     const accessToken = this.getToken()
 
-    if (accessToken)  {
+    if (accessToken) {
       return this.decode(accessToken)
     }
 

@@ -39,10 +39,8 @@ export class LoginComponent implements OnInit {
   valid: boolean = false
 
   constructor (
-    private route: ActivatedRoute,
     public userTemplates: UserTemplates,
     public config: UserConfig,
-    private router: Router,
     private store: Store
   ) {
     if (config.schemas && config.schemas.login) {
@@ -73,11 +71,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  validationErrors (_event) {
-  }
+  validationErrors (_event) {}
 
-  onChanges (_event) {
-  }
+  onChanges (_event) {}
 
   isValid (event: boolean) {
     this.valid = event

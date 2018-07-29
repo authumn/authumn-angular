@@ -13,7 +13,7 @@ import { AuthService } from '@authumn/angular-auth'
       <em>
         Your userId is: {{authService.getUserId()}}.
       </em>
-      
+
       <h3>Access Token:</h3>
       <em>
         {{authService.getToken()}}.

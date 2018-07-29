@@ -34,7 +34,7 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<AnyData>,
     next: HttpHandler
   ): Observable<HttpEvent<AnyData>> {
-    this.authService = this.injector.get(AuthService)
+    this.authService = this.injector.get<AuthService>(AuthService)
     const url = request.url.toLowerCase()
 
     if (this.isResourceUrl(url)) {

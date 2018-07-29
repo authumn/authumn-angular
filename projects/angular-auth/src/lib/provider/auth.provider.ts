@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http'
 
 import * as qs from 'qs'
 
-import { Observable } from 'rxjs'
 import 'rxjs/add/operator/map'
 
 import { AuthProviderInterface } from './auth.provider.interface'
 import { AuthConfig } from '../auth.config'
+import { Observable } from 'rxjs'
 
 @Injectable()
 export class AuthProvider implements AuthProviderInterface {
@@ -19,7 +19,7 @@ export class AuthProvider implements AuthProviderInterface {
   login (
     username: string,
     password: string
-  ) {
+  ): Observable<any> {
     return this.http.post<any>(
       this.authConfig.api.loginUrl,
       qs.stringify({ username, password }),
@@ -33,7 +33,7 @@ export class AuthProvider implements AuthProviderInterface {
   register (
     username: string,
     password: string
-  ) {
+  ): Observable<any> {
     return this.http.post<any>(
       this.authConfig.api.registerUrl,
       { username: username, password: password })
