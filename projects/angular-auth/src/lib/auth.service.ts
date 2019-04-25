@@ -17,7 +17,9 @@ import { AuthModel } from './models/auth.model'
 import { TokenModel } from './models/token.model'
 import { DecodedModel } from './models/decoded.model'
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   constructor (
     private authProvider: AuthProvider,
