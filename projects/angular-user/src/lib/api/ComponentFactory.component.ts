@@ -14,7 +14,7 @@ import { AuthumnViewDirective } from './authumn-view.directive'
   `
 })
 export class ComponentFactoryComponent implements OnInit {
-  @ViewChild(AuthumnViewDirective, { static: false }) viewHost: AuthumnViewDirective
+  @ViewChild(AuthumnViewDirective, { static: true }) viewHost: AuthumnViewDirective
   constructor (
     private route: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver,
