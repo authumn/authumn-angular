@@ -4,9 +4,9 @@
   "author": "Rob Halff <rob.halff@gmail.com>",
   "version": "1.7.11",
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/router": "^6.0.3",
+    "@angular/core": "^8.2.4",
+    "@angular/common": "^8.2.4",
+    "@angular/router": "^8.2.4",
     "@authumn/angular-user": "^1.5.0"
   }
 }

@@ -24,6 +24,7 @@ import { catchError, map } from 'rxjs/operators'
 import { of, Observable } from 'rxjs'
 
 import { UserService } from './services/user.service'
+import {User} from './models'
 
 export interface UserStateModel {}
 
@@ -68,8 +69,10 @@ export class UserState {
     return this.userService
       .create(registration)
       .pipe(
-        map((user: RegistrationSuccessPayload) => {
-          dispatch(new UserRegisterSuccessAction(user))
+        map((user: User) => {
+          dispatch(new UserRegisterSuccessAction({
+            email: user.username
+          }))
         }),
         catchError(error =>
           of(

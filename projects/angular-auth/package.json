@@ -4,16 +4,16 @@
   "author": "Rob Halff <rob.halff@gmail.com>",
   "version": "1.7.11",
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/router": "^6.0.3",
-    "@ngxs/store": "^3.0.1",
-    "@ngxs/router-plugin": "^3.0.1",
-    "rxjs": "^6.0.0",
-    "qs": "^6.5.1",
+    "@angular/core": "^8.2.4",
+    "@angular/common": "^8.2.4",
+    "@angular/router": "^8.2.4",
+    "@ngxs/store": "^3.5.1",
+    "@ngxs/router-plugin": "^3.5.1",
+    "rxjs": "^6.5.2",
+    "qs": "^6.8.0",
     "jwt-decode": "^2.2.0"
   },
   "devDependencies": {
-    "@types/qs": "^6.5.1"
+    "@types/qs": "^6.8.0"
   }
 }

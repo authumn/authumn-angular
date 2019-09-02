@@ -4,16 +4,16 @@
   "author": "Rob Halff <rob.halff@gmail.com>",
   "version": "1.7.11",
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/router": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/animations": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/platform-browser": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/flex-layout": "^6.0.0-beta.15",
+    "@angular/core": "^8.2.4",
+    "@angular/common": "^8.2.4",
+    "@angular/router": "^8.2.4",
+    "@angular/animations": "^8.2.4",
+    "@angular/platform-browser": "^8.2.4",
+    "@angular/flex-layout": "^8.0.0-beta.27",
     "@authumn/angular-auth": "^1.5.0",
-    "@ngxs/store": "^3.0.1",
-    "@ngxs/router-plugin": "^3.0.1",
+    "@ngxs/store": "^3.5.1",
+    "@ngxs/router-plugin": "^3.5.1",
     "angular2-json-schema-form": "rhalff/angular2-json-schema-form#angular-6-dist",
-    "rxjs": "^6.0.0"
+    "rxjs": "^6.5.2"
   }
 }

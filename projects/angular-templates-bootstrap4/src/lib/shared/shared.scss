@@ -10,20 +10,20 @@
   min-width: 385px;
 }
 
-/deep/ .help-block {
+::ng-deep .help-block {
   color: white;
   font-size: small;
   margin-top: 1rem;
 }
 
-/deep/ .schema-form-submit {
+::ng-deep .schema-form-submit {
   color: white;
   p {
     font-size: small;
   }
 }
 
-/deep/ .form-control {
+::ng-deep .form-control {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.5);
   color: white;
@@ -37,11 +37,11 @@
   }
 }
 
-/deep/ label.control-label {
+::ng-deep label.control-label {
   color: white;
 }
 
-/deep/ input.btn {
+::ng-deep input.btn {
   float: right
 }
 
