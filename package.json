@@ -20,18 +20,18 @@
     "ncu": "ncu"
   },
   "dependencies": {
-    "@angular/animations": "^6.1.4",
-    "@angular/cdk": "^6.4.1",
-    "@angular/common": "^6.1.0",
-    "@angular/compiler": "^6.1.0",
-    "@angular/core": "^6.1.0",
-    "@angular/flex-layout": "^6.0.0-beta.17",
-    "@angular/forms": "^6.1.0",
-    "@angular/http": "^6.1.0",
-    "@angular/material": "^6.4.1",
-    "@angular/platform-browser": "^6.1.0",
-    "@angular/platform-browser-dynamic": "^6.1.0",
-    "@angular/router": "^6.1.0",
+    "@angular/animations": "^8.2.4",
+    "@angular/cdk": "^8.1.4",
+    "@angular/common": "^8.2.4",
+    "@angular/compiler": "^8.2.4",
+    "@angular/core": "^8.2.4",
+    "@angular/flex-layout": "^8.0.0-beta.27",
+    "@angular/forms": "^8.2.4",
+    "@angular/http": "^7.2.15",
+    "@angular/material": "^8.1.4",
+    "@angular/platform-browser": "^8.2.4",
+    "@angular/platform-browser-dynamic": "^8.2.4",
+    "@angular/router": "^8.2.4",
     "@ngxs/devtools-plugin": "^3.5.1",
     "@ngxs/router-plugin": "^3.5.1",
     "@ngxs/store": "^3.5.1",
@@ -77,6 +77,6 @@
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.15.0",
     "typedoc-plugin-markdown": "^2.1.7",
-    "typescript": "^2.7.2"
+    "typescript": "^3.6.2"
   }
 }
