@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/authumn-angular-bootstrap4",
+            "outputPath": "build/authumn-angular-bootstrap4",
             "index": "src/bootstrap4/index.html",
             "main": "src/bootstrap4/main.ts",
             "polyfills": "src/bootstrap4/polyfills.ts",
@@ -120,7 +120,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/authumn-angular-bootstrap3",
+            "outputPath": "build/authumn-angular-bootstrap3",
             "index": "src/bootstrap3/index.html",
             "main": "src/bootstrap3/main.ts",
             "polyfills": "src/bootstrap3/polyfills.ts",
@@ -228,7 +228,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/authumn-angular-material",
+            "outputPath": "build/authumn-angular-material",
             "index": "src/material/index.html",
             "main": "src/material/main.ts",
             "polyfills": "src/material/polyfills.ts",

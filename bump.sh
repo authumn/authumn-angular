@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BUMP="npm version patch"
+BUMP="npm version minor"
 
 cd ./projects/angular-auth
 
