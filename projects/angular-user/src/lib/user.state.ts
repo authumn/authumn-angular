@@ -1,4 +1,4 @@
-import { ApplicationRef } from '@angular/core'
+import { ApplicationRef, Injectable } from '@angular/core'
 import {
   Action,
   Selector,
@@ -24,7 +24,7 @@ import { catchError, map } from 'rxjs/operators'
 import { of, Observable } from 'rxjs'
 
 import { UserService } from './services/user.service'
-import {User} from './models'
+import { User } from './models'
 
 export interface UserStateModel {}
 
@@ -32,6 +32,7 @@ export interface UserStateModel {}
   name: 'user',
   defaults: {}
 })
+@Injectable()
 export class UserState {
   constructor (
     private userService: UserService,

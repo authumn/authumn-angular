@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core'
 import {
   Action,
   Selector,
@@ -30,6 +31,7 @@ export interface AuthStateModel {
     returnUrl: ['/']
   }
 })
+@Injectable()
 export class AuthState {
   constructor (
     private authConfig: AuthConfig
