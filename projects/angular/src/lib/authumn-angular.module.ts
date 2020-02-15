@@ -29,7 +29,7 @@ export class AuthumnAngularModule {
         'AuthumnAngularModule is already loaded. Import it in the AppModule only')
     }
   }
-  public static forRoot (config: AuthumnAngularConfig): ModuleWithProviders {
+  public static forRoot (config: AuthumnAngularConfig): ModuleWithProviders<AuthumnAngularModule> {
     return {
       ngModule: AuthumnAngularModule,
       providers: [

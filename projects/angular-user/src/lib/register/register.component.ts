@@ -21,7 +21,7 @@ export class RegisterComponent {
     schema: registerSchema
   }
   formOptions = {}
-  valid: boolean = false
+  valid = false
 
   constructor (
     public config: UserConfig,

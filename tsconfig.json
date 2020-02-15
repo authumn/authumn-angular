@@ -2,6 +2,22 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
       "@authumn/angular": [
         "dist/@authumn/angular"
@@ -22,22 +38,9 @@
         "dist/@authumn/angular-auth"
       ]
     },
-    "strict": true,
-    "strictPropertyInitialization": false,
-    "noImplicitAny": false,
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es5",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }

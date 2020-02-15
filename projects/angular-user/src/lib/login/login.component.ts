@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
   formOptions = {}
 
-  valid: boolean = false
+  valid = false
 
   constructor (
     public userTemplates: UserTemplates,

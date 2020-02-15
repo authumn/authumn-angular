@@ -11,6 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "build/authumn-angular-bootstrap4",
             "index": "src/bootstrap4/index.html",
             "main": "src/bootstrap4/main.ts",
@@ -36,6 +37,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/bootstrap4/environments/environment.ts",
@@ -120,6 +127,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "build/authumn-angular-bootstrap3",
             "index": "src/bootstrap3/index.html",
             "main": "src/bootstrap3/main.ts",
@@ -144,6 +152,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/bootstrap3/environments/environment.ts",
@@ -228,6 +242,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "build/authumn-angular-material",
             "index": "src/material/index.html",
             "main": "src/material/main.ts",
@@ -252,6 +267,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/material/environments/environment.ts",
@@ -363,7 +384,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/angular/ng-package.prod.json"
+              "project": "projects/angular/ng-package.prod.json",
+              "tsConfig": "projects/angular/tsconfig.lib.prod.json"
             }
           }
         },
@@ -403,7 +425,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/angular-templates-material/ng-package.prod.json"
+              "project": "projects/angular-templates-material/ng-package.prod.json",
+              "tsConfig": "projects/angular-templates-material/tsconfig.lib.prod.json"
             }
           }
         },
@@ -443,7 +466,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/angular-templates-bootstrap3/ng-package.prod.json"
+              "project": "projects/angular-templates-bootstrap3/ng-package.prod.json",
+              "tsConfig": "projects/angular-templates-bootstrap3/tsconfig.lib.prod.json"
             }
           }
         },
@@ -483,7 +507,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/angular-templates-bootstrap4/ng-package.prod.json"
+              "project": "projects/angular-templates-bootstrap4/ng-package.prod.json",
+              "tsConfig": "projects/angular-templates-bootstrap4/tsconfig.lib.prod.json"
             }
           }
         },
@@ -523,7 +548,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/angular-user/ng-package.prod.json"
+              "project": "projects/angular-user/ng-package.prod.json",
+              "tsConfig": "projects/angular-user/tsconfig.lib.prod.json"
             }
           }
         },
@@ -563,7 +589,8 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/angular-auth/ng-package.prod.json"
+              "project": "projects/angular-auth/ng-package.prod.json",
+              "tsConfig": "projects/angular-auth/tsconfig.lib.prod.json"
             }
           }
         },
@@ -594,5 +621,8 @@
     "@schematics/angular:component": {
       "styleext": "css"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

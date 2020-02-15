@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
-    "module": "es2015",
     "paths": {
       "@authumn/angular": [
         "projects/angular/src/public_api.ts"
@@ -22,8 +21,8 @@
     },
     "types": []
   },
-  "exclude": [
-    "src/test.ts",
-    "**/*.spec.ts"
+  "files": [
+    "main.ts",
+    "polyfills.ts"
   ]
 }

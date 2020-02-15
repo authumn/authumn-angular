@@ -48,7 +48,7 @@ export class AuthModule {
         'AuthModule is already loaded. Import it in the AppModule only')
     }
   }
-  public static forRoot (config: AuthConfig): ModuleWithProviders {
+  public static forRoot (config: AuthConfig): ModuleWithProviders<AuthModule> {
     return {
       ngModule: AuthModule,
       providers: [

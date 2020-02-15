@@ -7,11 +7,11 @@ export class AuthActions {
   static ERROR = '[Auth] ERROR'
 }
 
-export type RedirectPayload = {
+export interface RedirectPayload {
   returnUrl: string | string[]
 }
 
-export type ErrorPayload = {
+export interface ErrorPayload {
   message: string
 }
 
