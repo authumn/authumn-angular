@@ -36,6 +36,6 @@ export class AuthProvider implements AuthProviderInterface {
   ): Observable<any> {
     return this.http.post<any>(
       this.authConfig.api.registerUrl,
-      { username: username, password: password })
+      { username, password })
   }
 }

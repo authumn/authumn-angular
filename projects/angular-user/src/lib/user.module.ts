@@ -63,7 +63,7 @@ export class UserModule {
         'UserModule is already loaded. Import it in the AppModule only')
     }
   }
-  public static forRoot (config: UserConfig): ModuleWithProviders {
+  public static forRoot (config: UserConfig): ModuleWithProviders<UserModule> {
     return {
       ngModule: UserModule,
       providers: [

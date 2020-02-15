@@ -1,19 +1,19 @@
-import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { FlexLayoutModule } from '@angular/flex-layout'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {NgModule} from '@angular/core'
+import {CommonModule} from '@angular/common'
+import {FlexLayoutModule} from '@angular/flex-layout'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
-import { RegisterComponent } from './register/register.component'
-import { LostPasswordComponent } from './lost-password/lost-password.component'
-import { LoginComponent } from './login/login.component'
-import { UserComponent } from './user.component'
-import { JsonSchemaFormModule } from 'angular2-json-schema-form'
+import {RegisterComponent} from './register/register.component'
+import {LostPasswordComponent} from './lost-password/lost-password.component'
+import {LoginComponent} from './login/login.component'
+import {UserComponent} from './user.component'
+import {JsonSchemaFormModule} from '@ngsf/json-schema-form'
 
 const components = [
   UserComponent,
   LoginComponent,
   LostPasswordComponent,
-  RegisterComponent
+  RegisterComponent,
 ]
 
 @NgModule({
@@ -21,13 +21,9 @@ const components = [
     CommonModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    JsonSchemaFormModule
+    JsonSchemaFormModule,
   ],
-  declarations: [
-    ...components
-  ],
-  exports: [
-    ...components
-  ]
+  declarations: [...components],
+  exports: [...components],
 })
 export class UserComponentsModule {}

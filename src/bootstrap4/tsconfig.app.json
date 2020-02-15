@@ -2,28 +2,21 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
-    "module": "es2015",
     "paths": {
-      "@authumn/angular": [
-        "projects/angular/src/public_api.ts"
-      ],
+      "@authumn/angular": ["projects/angular/src/public_api.ts"],
       "@authumn/angular-templates-bootstrap4": [
         "projects/angular-templates-bootstrap4/src/public_api.ts"
       ],
       "@authumn/angular-templates-material": [
         "projects/angular-templates-material/src/public_api.ts"
       ],
-      "@authumn/angular-user": [
-        "projects/angular-user/src/public_api.ts"
-      ],
-      "@authumn/angular-auth": [
-        "projects/angular-auth/src/public_api.ts"
-      ]
+      "@authumn/angular-user": ["projects/angular-user/src/public_api.ts"],
+      "@authumn/angular-auth": ["projects/angular-auth/src/public_api.ts"]
     },
     "types": []
   },
-  "exclude": [
-    "src/test.ts",
-    "**/*.spec.ts"
-  ]
+  "angularCompilerOptions": {
+    "enableIvy": false
+  },
+  "files": ["main.ts", "polyfills.ts"]
 }

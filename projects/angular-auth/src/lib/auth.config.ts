@@ -1,9 +1,9 @@
-export type Api = {
+export interface Api {
   loginUrl: string
   registerUrl: string
 }
 
-export type Routes = {
+export interface Routes {
   login: string[]
   return: string[]
 }
