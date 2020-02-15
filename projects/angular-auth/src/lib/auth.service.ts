@@ -1,36 +1,33 @@
-import { Injectable } from '@angular/core'
+import {Injectable} from '@angular/core'
 import jwtDecode from 'jwt-decode'
 
-import { Store } from '@ngxs/store'
+import {Store} from '@ngxs/store'
 
-import { of, Observable } from 'rxjs'
+import {of, Observable} from 'rxjs'
 
-import { AuthProvider } from './provider/auth.provider'
+import {AuthProvider} from './provider/auth.provider'
 import {
   AuthAuthenticatedAction,
   AuthAuthenticationErrorAction,
-  AuthLogoutAction
+  AuthLogoutAction,
 } from './auth.actions'
-import { catchError, map } from 'rxjs/operators'
+import {catchError, map} from 'rxjs/operators'
 
-import { AuthModel } from './models/auth.model'
-import { TokenModel } from './models/token.model'
-import { DecodedModel } from './models/decoded.model'
+import {AuthModel} from './models/auth.model'
+import {TokenModel} from './models/token.model'
+import {DecodedModel} from './models/decoded.model'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  constructor (
-    private authProvider: AuthProvider,
-    private store: Store
-  ) {}
+  constructor(private authProvider: AuthProvider, private store: Store) {}
 
-  public getToken (): string | null {
+  public getToken(): string | null {
     return this.getItem('access_token')
   }
 
-  public getUserId (): string | null {
+  public getUserId(): string | null {
     const user = this.getUser()
 
     if (user) {
@@ -40,7 +37,7 @@ export class AuthService {
     return null
   }
 
-  public getUsername (): string | null {
+  public getUsername(): string | null {
     const user = this.getUser()
 
     if (user) {
@@ -50,7 +47,7 @@ export class AuthService {
     return null
   }
 
-  public getUser (): AuthModel | null {
+  public getUser(): AuthModel | null {
     const user = this.getItem('currentUser')
 
     if (user) {
@@ -60,7 +57,7 @@ export class AuthService {
     return null
   }
 
-  public refresh () {
+  public refresh() {
     const user = this.getUser()
 
     if (user) {
@@ -68,7 +65,7 @@ export class AuthService {
     }
   }
 
-  public isAuthenticated (): boolean {
+  public isAuthenticated(): boolean {
     const token = this.getToken()
 
     if (!token || this.isExpired()) {
@@ -80,13 +77,13 @@ export class AuthService {
     return true
   }
 
-  public isExpired (): boolean {
+  public isExpired(): boolean {
     const tokenExpire = Number(this.getItem('tokenExpire'))
 
-    return (tokenExpire - Date.now()) <= 0
+    return tokenExpire - Date.now() <= 0
   }
 
-  public getAuthorizationHeader (): string | null {
+  public getAuthorizationHeader(): string | null {
     const accessToken = this.getToken()
 
     if (accessToken) {
@@ -96,33 +93,36 @@ export class AuthService {
     return null
   }
 
-  public login (username: string, password: string): Observable<any> {
-    return this.authProvider.login(username, password)
-      .pipe(
-        map(({ access_token, expires_in }: TokenModel) => {
-          const { sub: id, email, username } = this.decode(access_token)
+  public login(username: string, password: string): Observable<any> {
+    return this.authProvider.login(username, password).pipe(
+      map(({access_token, expires_in}: TokenModel) => {
+        const {sub: id, email, username: userName} = this.decode(access_token)
 
-          const user: AuthModel = { id, email, username }
+        const user: AuthModel = {id, email, username: userName}
 
-          this.setItem('access_token', access_token)
-          this.setItem('currentUser', JSON.stringify(user))
-          this.setItem('tokenExpire', String(Date.now() + (expires_in * 1000)))
+        this.setItem('access_token', access_token)
+        this.setItem('currentUser', JSON.stringify(user))
+        this.setItem('tokenExpire', String(Date.now() + expires_in * 1000))
 
-          return of(this.store.dispatch(new AuthAuthenticatedAction(user)))
-        }),
-        catchError((error) => {
-          return of(this.store.dispatch(new AuthAuthenticationErrorAction({
-            message: error.message
-          })))
-        })
-      )
+        return of(this.store.dispatch(new AuthAuthenticatedAction(user)))
+      }),
+      catchError(error => {
+        return of(
+          this.store.dispatch(
+            new AuthAuthenticationErrorAction({
+              message: error.message,
+            })
+          )
+        )
+      })
+    )
   }
 
-  public decode (token: string): DecodedModel {
+  public decode(token: string): DecodedModel {
     return jwtDecode(token)
   }
 
-  public getDecodedToken (): DecodedModel {
+  public getDecodedToken(): DecodedModel {
     const accessToken = this.getToken()
 
     if (accessToken) {
@@ -132,19 +132,19 @@ export class AuthService {
     throw Error('Could not decode token.')
   }
 
-  public clear () {
+  public clear() {
     this.removeItem('accessToken')
     this.removeItem('currentUser')
     this.removeItem('tokenExpire')
   }
 
-  public logout () {
+  public logout() {
     this.clear()
 
     this.store.dispatch(new AuthLogoutAction())
   }
 
-  private getItem (key: string) {
+  private getItem(key: string) {
     if (localStorage) {
       return localStorage.getItem(key)
     }
@@ -152,13 +152,13 @@ export class AuthService {
     return null
   }
 
-  private setItem (key: string, value: any): void {
+  private setItem(key: string, value: any): void {
     if (localStorage) {
       localStorage.setItem(key, value)
     }
   }
 
-  private removeItem (key: string): void {
+  private removeItem(key: string): void {
     if (localStorage) {
       localStorage.removeItem(key)
     }

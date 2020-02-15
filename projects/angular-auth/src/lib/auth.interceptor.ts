@@ -1,36 +1,30 @@
-import {
-  Injectable,
-  Injector
-} from '@angular/core'
+import {Injectable, Injector} from '@angular/core'
 import {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
-  HttpRequest
+  HttpRequest,
 } from '@angular/common/http'
 
-import { Observable } from 'rxjs/index'
+import {Observable} from 'rxjs/index'
 
-import { AuthService } from './auth.service'
-import { AuthConfig } from './auth.config'
+import {AuthService} from './auth.service'
+import {AuthConfig} from './auth.config'
 
-export interface AnyData {}
+export type AnyData = any
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   authService!: AuthService
-  constructor (
-    private injector: Injector,
-    private authConfig: AuthConfig
-  ) { }
+  constructor(private injector: Injector, private authConfig: AuthConfig) {}
 
-  isResourceUrl (url: string) {
-    return Boolean(this.authConfig.resourceServers.find(server => (
-      url.startsWith(server)
-    )))
+  isResourceUrl(url: string) {
+    return Boolean(
+      this.authConfig.resourceServers.find(server => url.startsWith(server))
+    )
   }
 
-  intercept (
+  intercept(
     request: HttpRequest<AnyData>,
     next: HttpHandler
   ): Observable<HttpEvent<AnyData>> {
@@ -43,7 +37,7 @@ export class AuthInterceptor implements HttpInterceptor {
       if (authHeader) {
         const authHeaders = request.headers.set('Authorization', authHeader)
 
-        const authRequest = request.clone({ headers: authHeaders })
+        const authRequest = request.clone({headers: authHeaders})
 
         return next.handle(authRequest)
       }
